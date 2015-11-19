@@ -48,45 +48,38 @@ Iter free_ptr();
 
 // Основные перечисления
 
-refalrts::FnResult Success( refalrts::Iter, refalrts::Iter ) {
+namespace {
+
+refalrts::FnResult enum_empty_function( refalrts::Iter, refalrts::Iter ) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Fails( refalrts::Iter, refalrts::Iter ) {
-  return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult True( refalrts::Iter, refalrts::Iter ) {
-  return refalrts::cRecognitionImpossible;
-}
+refalrts::RefalFunction Success = { & enum_empty_function, "Success" };
+refalrts::RefalFunction Fails = { & enum_empty_function, "Fails" };
+refalrts::RefalFunction True = { & enum_empty_function, "True" };
+refalrts::RefalFunction False = { & enum_empty_function, "False" };
+refalrts::RefalFunction TypeNumber = { & enum_empty_function, "TypeNumber" };
+refalrts::RefalFunction TypeCharacter = { & enum_empty_function, "TypeCharacter" };
+refalrts::RefalFunction TypeFunction = { & enum_empty_function, "TypeFunction" };
+refalrts::RefalFunction TypeFile = { & enum_empty_function, "TypeFile" };
+refalrts::RefalFunction TypeIdentifier= { & enum_empty_function, "TypeIdentifier" };
 
-refalrts::FnResult False( refalrts::Iter, refalrts::Iter ) {
-  return refalrts::cRecognitionImpossible;
-}
-
-refalrts::FnResult TypeNumber(refalrts::Iter, refalrts::Iter) {
-  return refalrts::cRecognitionImpossible;
-}
-
-refalrts::FnResult TypeCharacter(refalrts::Iter, refalrts::Iter) {
-  return refalrts::cRecognitionImpossible;
-}
-
-refalrts::FnResult TypeFunction(refalrts::Iter, refalrts::Iter) {
-  return refalrts::cRecognitionImpossible;
-}
-
-refalrts::FnResult TypeFile(refalrts::Iter, refalrts::Iter) {
-  return refalrts::cRecognitionImpossible;
-}
-
-refalrts::FnResult TypeIdentifier(refalrts::Iter, refalrts::Iter) {
-  return refalrts::cRecognitionImpossible;
-}
+#define DECLARE_ENTRY_FUNCTION(name) \
+  static refalrts::FnResult func_ ## name( \
+    refalrts::Iter arg_begin, refalrts::Iter arg_end \
+  ); \
+  \
+  refalrts::RefalFunction name = { func_ ## name, #name }; \
+  \
+  static refalrts::FnResult func_ ## name( \
+    refalrts::Iter arg_begin, refalrts::Iter arg_end \
+  )
 
 // Математические операции
 
-refalrts::FnResult Add(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Add) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -125,7 +118,7 @@ refalrts::FnResult Add(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Sub(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Sub) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -164,7 +157,7 @@ refalrts::FnResult Sub(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Mul(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Mul) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -203,7 +196,7 @@ refalrts::FnResult Mul(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Div(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Div) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -242,7 +235,7 @@ refalrts::FnResult Div(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Mod(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Mod) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -317,12 +310,7 @@ refalrts::FnResult write_to_stream(
       }
 
       case refalrts::cDataFunction: {
-        if( p->function_info.name[0] != '\0' ) {
-          printf_res = fprintf( out, "%s ", p->function_info.name );
-        } else {
-          printf_res = fprintf( out, "&%p ", p->function_info.ptr );
-        }
-
+        printf_res = fprintf( out, "%s ", p->function_info->name );
         if( printf_res < 0 ) {
           return refalrts::cRecognitionImpossible;
         } else {
@@ -427,7 +415,7 @@ refalrts::FnResult write_to_stream(
   }
 }
 
-refalrts::FnResult WriteLine(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(WriteLine) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -456,7 +444,7 @@ refalrts::FnResult WriteLine(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult FWriteLine(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(FWriteLine) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -536,9 +524,7 @@ refalrts::FnResult read_from_stream(
   return refalrts::cSuccess;
 }
 
-refalrts::FnResult ReadLine(
-  refalrts::Iter arg_begin, refalrts::Iter arg_end
-) {
+DECLARE_ENTRY_FUNCTION(ReadLine) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -569,9 +555,7 @@ refalrts::FnResult ReadLine(
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult FReadLine(
-  refalrts::Iter arg_begin, refalrts::Iter arg_end
-) {
+DECLARE_ENTRY_FUNCTION(FReadLine) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -653,7 +637,7 @@ refalrts::FnResult string_from_seq(
 
 } // unnamed namespace
 
-refalrts::FnResult FOpen(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(FOpen) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -714,7 +698,7 @@ refalrts::FnResult FOpen(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult FClose(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(FClose) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -758,7 +742,7 @@ refalrts::FnResult FClose(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
 extern char **g_argv;
 extern int g_argc;
 
-refalrts::FnResult Arg(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Arg) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -796,7 +780,7 @@ refalrts::FnResult Arg(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult ExistFile(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(ExistFile) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -828,12 +812,12 @@ refalrts::FnResult ExistFile(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
       // Файл существует
       fclose( f );
 
-      if( ! refalrts::alloc_name( ans, & True, "True" ) ) {
+      if( ! refalrts::alloc_name( ans, & True ) ) {
         return refalrts::cNoMemory;
       }
     } else {
       // Файл по-видимому не существует
-      if( ! refalrts::alloc_name( ans, & False, "False" ) ) {
+      if( ! refalrts::alloc_name( ans, & False ) ) {
         return refalrts::cNoMemory;
       }
     }
@@ -847,7 +831,7 @@ refalrts::FnResult ExistFile(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult GetEnv(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(GetEnv) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -900,7 +884,7 @@ refalrts::FnResult GetEnv(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Exit(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Exit) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -927,7 +911,7 @@ refalrts::FnResult Exit(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult System(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(System) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -968,7 +952,7 @@ refalrts::FnResult System(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
 
 // Работа с типами символов
 
-refalrts::FnResult IntFromStr(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(IntFromStr) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -994,7 +978,7 @@ refalrts::FnResult IntFromStr(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
 
     if( ! start_is_digit ) {
       refalrts::Iter fail_pos = 0;
-      if( ! refalrts::alloc_name( fail_pos, & Fails, "Fails" ) )
+      if( ! refalrts::alloc_name( fail_pos, & Fails ) )
         return refalrts::cNoMemory;
 
       res = refalrts::splice_evar( res, eNumber_b_1, eNumber_e_1 );
@@ -1019,7 +1003,7 @@ refalrts::FnResult IntFromStr(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
       refalrts::Iter success_pos = 0;
       refalrts::Iter number_pos = 0;
 
-      if( ! refalrts::alloc_name( success_pos, & Success, "Success" ) )
+      if( ! refalrts::alloc_name( success_pos, & Success ) )
         return refalrts::cNoMemory;
 
       if( ! refalrts::alloc_number( number_pos, acc ) )
@@ -1038,7 +1022,7 @@ refalrts::FnResult IntFromStr(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult StrFromInt(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(StrFromInt) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -1099,7 +1083,7 @@ refalrts::FnResult StrFromInt(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Chr(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Chr) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -1132,7 +1116,7 @@ refalrts::FnResult Chr(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult Ord(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(Ord) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -1181,7 +1165,7 @@ char compare_char( T x, T y ) {
 
 } // unnamed namespace
 
-refalrts::FnResult SymbCompare(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(SymbCompare) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -1271,8 +1255,8 @@ refalrts::FnResult SymbCompare(refalrts::Iter arg_begin, refalrts::Iter arg_end)
           {
             int cmpres =
               strcmp(
-                sSymb1_1->function_info.name,
-                sSymb2_1->function_info.name
+                sSymb1_1->function_info->name,
+                sSymb2_1->function_info->name
               );
 
             if( cmpres < 0 ) {
@@ -1282,8 +1266,8 @@ refalrts::FnResult SymbCompare(refalrts::Iter arg_begin, refalrts::Iter arg_end)
             } else {
               order =
                 compare_char(
-                  sSymb1_1->function_info.ptr,
-                  sSymb2_1->function_info.ptr
+                  sSymb1_1->function_info->ptr,
+                  sSymb2_1->function_info->ptr
                 );
             }
           }
@@ -1395,7 +1379,7 @@ refalrts::FnResult SymbCompare(refalrts::Iter arg_begin, refalrts::Iter arg_end)
   return refalrts::cRecognitionImpossible;
 }
 
-refalrts::FnResult SymbType(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+DECLARE_ENTRY_FUNCTION(SymbType) {
   do {
     refalrts::Iter bb_0 = arg_begin;
     refalrts::Iter be_0 = arg_end;
@@ -1409,32 +1393,26 @@ refalrts::FnResult SymbType(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
     if( ! refalrts::empty_seq( bb_0, be_0 ) )
       break;
 
-    const char *fnname = 0;
-    refalrts::RefalFunctionPtr fnptr = 0;
+    refalrts::RefalFunction *fnptr = 0;
 
     switch( sSymb_1->tag ) {
     case refalrts::cDataNumber:
-      fnname = "TypeNumber";
       fnptr = & TypeNumber;
       break;
 
     case refalrts::cDataChar:
-      fnname = "TypeCharacter";
       fnptr = & TypeCharacter;
       break;
 
     case refalrts::cDataFunction:
-      fnname = "TypeFunction";
       fnptr = & TypeFunction;
       break;
 
     case refalrts::cDataIdentifier:
-      fnname = "TypeIdentifier";
       fnptr = & TypeIdentifier;
       break;
 
     case refalrts::cDataFile:
-      fnname = "TypeFile";
       fnptr = & TypeFile;
       break;
 
@@ -1442,13 +1420,13 @@ refalrts::FnResult SymbType(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
       break;
     }
 
-    if( 0 == fnname )
+    if( 0 == fnptr )
       break;
 
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, fnptr, fnname ) )
+    if( ! refalrts::alloc_name( n0, fnptr ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );

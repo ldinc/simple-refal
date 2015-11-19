@@ -2,14 +2,30 @@
 #include "refalrts.h"
 
 
-static refalrts::FnResult ErrorList(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_ErrorList
+#define defined_ErrorList
+static refalrts::FnResult func_ErrorList(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction ErrorList = {
+  func_ErrorList, "ErrorList"
+};
+
+#endif /* ErrorList */
+
+static refalrts::FnResult func_ErrorList(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult EL_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_EL_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_Create = {
+  func_EL_Create, "EL_Create"
+};
+
+refalrts::FnResult func_EL_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -38,7 +54,7 @@ refalrts::FnResult EL_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & ErrorList, "ErrorList" ) )
+    if( ! refalrts::alloc_name( n1, & ErrorList ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -58,7 +74,13 @@ refalrts::FnResult EL_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   );
 }
 
-refalrts::FnResult EL_AddError(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_EL_AddError(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_AddError = {
+  func_EL_AddError, "EL_AddError"
+};
+
+refalrts::FnResult func_EL_AddError(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -112,7 +134,7 @@ refalrts::FnResult EL_AddError(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & ErrorList, "ErrorList" ) )
+    if( ! refalrts::alloc_name( n1, & ErrorList ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -179,9 +201,15 @@ refalrts::FnResult EL_AddError(refalrts::Iter arg_begin, refalrts::Iter arg_end)
   );
 }
 
-extern refalrts::FnResult StrFromInt(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction StrFromInt;
 
-refalrts::FnResult EL_AddErrorAt(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_EL_AddErrorAt(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_AddErrorAt = {
+  func_EL_AddErrorAt, "EL_AddErrorAt"
+};
+
+refalrts::FnResult func_EL_AddErrorAt(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -246,7 +274,7 @@ refalrts::FnResult EL_AddErrorAt(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & ErrorList, "ErrorList" ) )
+    if( ! refalrts::alloc_name( n1, & ErrorList ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -288,7 +316,7 @@ refalrts::FnResult EL_AddErrorAt(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n14 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n15 = 0;
-    if( ! refalrts::alloc_name( n15, & StrFromInt, "StrFromInt" ) )
+    if( ! refalrts::alloc_name( n15, & StrFromInt ) )
       return refalrts::cNoMemory;
     refalrts::Iter n16 = 0;
     if( ! refalrts::alloc_close_call( n16 ) )
@@ -344,13 +372,19 @@ refalrts::FnResult EL_AddErrorAt(refalrts::Iter arg_begin, refalrts::Iter arg_en
   );
 }
 
-extern refalrts::FnResult StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction StrFromToken;
 
-extern refalrts::FnResult TkError(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction TkError;
 
-extern refalrts::FnResult TkUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction TkUnexpected;
 
-refalrts::FnResult EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_AddUnexpected = {
+  func_EL_AddUnexpected, "EL_AddUnexpected"
+};
+
+refalrts::FnResult func_EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -397,7 +431,7 @@ refalrts::FnResult EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_call( n2 ) )
@@ -482,7 +516,7 @@ refalrts::FnResult EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -661,7 +695,7 @@ refalrts::FnResult EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -700,7 +734,7 @@ refalrts::FnResult EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n13 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n14 = 0;
-    if( ! refalrts::alloc_name( n14, & StrFromToken, "StrFromToken" ) )
+    if( ! refalrts::alloc_name( n14, & StrFromToken ) )
       return refalrts::cNoMemory;
     refalrts::Iter n15 = 0;
     if( ! refalrts::alloc_close_call( n15 ) )
@@ -789,11 +823,21 @@ refalrts::FnResult EL_AddUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg
   );
 }
 
-extern refalrts::FnResult Map(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction Map;
 
-extern refalrts::FnResult WriteLine(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction WriteLine;
 
-static refalrts::FnResult PrintError(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_PrintError
+#define defined_PrintError
+static refalrts::FnResult func_PrintError(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction PrintError = {
+  func_PrintError, "PrintError"
+};
+
+#endif /* PrintError */
+
+static refalrts::FnResult func_PrintError(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -831,7 +875,7 @@ static refalrts::FnResult PrintError(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & WriteLine, "WriteLine" ) )
+    if( ! refalrts::alloc_name( n1, & WriteLine ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_call( n2 ) )
@@ -853,7 +897,13 @@ static refalrts::FnResult PrintError(refalrts::Iter arg_begin, refalrts::Iter ar
   );
 }
 
-refalrts::FnResult EL_Print(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_EL_Print(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_Print = {
+  func_EL_Print, "EL_Print"
+};
+
+refalrts::FnResult func_EL_Print(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -902,10 +952,10 @@ refalrts::FnResult EL_Print(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Map, "Map" ) )
+    if( ! refalrts::alloc_name( n1, & Map ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & PrintError, "PrintError" ) )
+    if( ! refalrts::alloc_name( n2, & PrintError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_call( n3 ) )
@@ -914,7 +964,7 @@ refalrts::FnResult EL_Print(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
     if( ! refalrts::alloc_open_bracket( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & ErrorList, "ErrorList" ) )
+    if( ! refalrts::alloc_name( n5, & ErrorList ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_close_bracket( n6 ) )
@@ -942,21 +992,39 @@ refalrts::FnResult EL_Print(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   );
 }
 
-refalrts::FnResult EL_NoErrors(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_EL_NoErrors(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_NoErrors = {
+  func_EL_NoErrors, "EL_NoErrors"
+};
+
+refalrts::FnResult func_EL_NoErrors(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult EL_HasErrors(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_EL_HasErrors(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_HasErrors = {
+  func_EL_HasErrors, "EL_HasErrors"
+};
+
+refalrts::FnResult func_EL_HasErrors(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult EL_IsEmpty(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_EL_IsEmpty(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EL_IsEmpty = {
+  func_EL_IsEmpty, "EL_IsEmpty"
+};
+
+refalrts::FnResult func_EL_IsEmpty(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -988,7 +1056,7 @@ refalrts::FnResult EL_IsEmpty(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & EL_NoErrors, "EL_NoErrors" ) )
+    if( ! refalrts::alloc_name( n0, & EL_NoErrors ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -1022,7 +1090,7 @@ refalrts::FnResult EL_IsEmpty(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & EL_HasErrors, "EL_HasErrors" ) )
+    if( ! refalrts::alloc_name( n0, & EL_HasErrors ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );

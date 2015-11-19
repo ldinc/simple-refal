@@ -2,14 +2,30 @@
 #include "refalrts.h"
 
 
-static refalrts::FnResult TSymTable(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TSymTable
+#define defined_TSymTable
+static refalrts::FnResult func_TSymTable(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TSymTable = {
+  func_TSymTable, "TSymTable"
+};
+
+#endif /* TSymTable */
+
+static refalrts::FnResult func_TSymTable(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult ST_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_ST_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ST_Create = {
+  func_ST_Create, "ST_Create"
+};
+
+refalrts::FnResult func_ST_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -38,7 +54,7 @@ refalrts::FnResult ST_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
     if( ! refalrts::alloc_open_adt( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+    if( ! refalrts::alloc_name( n1, & TSymTable ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_adt( n2 ) )
@@ -58,34 +74,70 @@ refalrts::FnResult ST_Create(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   );
 }
 
-static refalrts::FnResult Declared(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_Declared
+#define defined_Declared
+static refalrts::FnResult func_Declared(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Declared = {
+  func_Declared, "Declared"
+};
+
+#endif /* Declared */
+
+static refalrts::FnResult func_Declared(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult Defined(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_Defined
+#define defined_Defined
+static refalrts::FnResult func_Defined(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Defined = {
+  func_Defined, "Defined"
+};
+
+#endif /* Defined */
+
+static refalrts::FnResult func_Defined(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult Identifier(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_Identifier
+#define defined_Identifier
+static refalrts::FnResult func_Identifier(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Identifier = {
+  func_Identifier, "Identifier"
+};
+
+#endif /* Identifier */
+
+static refalrts::FnResult func_Identifier(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-extern refalrts::FnResult GN_Entry(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction GN_Entry;
 
-extern refalrts::FnResult GN_Local(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction GN_Local;
 
-extern refalrts::FnResult EL_AddErrorAt(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction EL_AddErrorAt;
 
-refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ST_AddDefined = {
+  func_ST_AddDefined, "ST_AddDefined"
+};
+
+refalrts::FnResult func_ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -193,7 +245,7 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -277,13 +329,13 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_adt( n28 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n29 = 0;
-      if( ! refalrts::alloc_name( n29, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n29, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n30 = 0;
       if( ! refalrts::alloc_open_bracket( n30 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n31 = 0;
-      if( ! refalrts::alloc_name( n31, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n31, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n32 = 0;
       if( ! refalrts::alloc_close_bracket( n32 ) )
@@ -419,13 +471,13 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_adt( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n1, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_open_bracket( n2 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n3 = 0;
-      if( ! refalrts::alloc_name( n3, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n3, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n4 = 0;
       if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -566,7 +618,7 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -677,16 +729,16 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_adt( n37 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n38 = 0;
-      if( ! refalrts::alloc_name( n38, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n38, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n39 = 0;
       if( ! refalrts::alloc_open_bracket( n39 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n40 = 0;
-      if( ! refalrts::alloc_name( n40, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n40, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n41 = 0;
-      if( ! refalrts::alloc_name( n41, & GN_Entry, "GN_Entry" ) )
+      if( ! refalrts::alloc_name( n41, & GN_Entry ) )
         return refalrts::cNoMemory;
       refalrts::Iter n42 = 0;
       if( ! refalrts::alloc_close_bracket( n42 ) )
@@ -868,7 +920,7 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -979,16 +1031,16 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_adt( n37 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n38 = 0;
-      if( ! refalrts::alloc_name( n38, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n38, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n39 = 0;
       if( ! refalrts::alloc_open_bracket( n39 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n40 = 0;
-      if( ! refalrts::alloc_name( n40, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n40, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n41 = 0;
-      if( ! refalrts::alloc_name( n41, & GN_Local, "GN_Local" ) )
+      if( ! refalrts::alloc_name( n41, & GN_Local ) )
         return refalrts::cNoMemory;
       refalrts::Iter n42 = 0;
       if( ! refalrts::alloc_close_bracket( n42 ) )
@@ -1110,13 +1162,13 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_adt( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+    if( ! refalrts::alloc_name( n1, & TSymTable ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & Defined, "Defined" ) )
+    if( ! refalrts::alloc_name( n3, & Defined ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -1147,7 +1199,13 @@ refalrts::FnResult ST_AddDefined(refalrts::Iter arg_begin, refalrts::Iter arg_en
   );
 }
 
-refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ST_AddDeclared = {
+  func_ST_AddDeclared, "ST_AddDeclared"
+};
+
+refalrts::FnResult func_ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -1225,13 +1283,13 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_adt( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n1, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_open_bracket( n2 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n3 = 0;
-      if( ! refalrts::alloc_name( n3, & Declared, "Declared" ) )
+      if( ! refalrts::alloc_name( n3, & Declared ) )
         return refalrts::cNoMemory;
       refalrts::Iter n4 = 0;
       if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -1335,13 +1393,13 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_adt( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n1, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_open_bracket( n2 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n3 = 0;
-      if( ! refalrts::alloc_name( n3, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n3, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n4 = 0;
       if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -1482,7 +1540,7 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -1593,16 +1651,16 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_adt( n37 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n38 = 0;
-      if( ! refalrts::alloc_name( n38, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n38, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n39 = 0;
       if( ! refalrts::alloc_open_bracket( n39 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n40 = 0;
-      if( ! refalrts::alloc_name( n40, & Declared, "Declared" ) )
+      if( ! refalrts::alloc_name( n40, & Declared ) )
         return refalrts::cNoMemory;
       refalrts::Iter n41 = 0;
-      if( ! refalrts::alloc_name( n41, & GN_Entry, "GN_Entry" ) )
+      if( ! refalrts::alloc_name( n41, & GN_Entry ) )
         return refalrts::cNoMemory;
       refalrts::Iter n42 = 0;
       if( ! refalrts::alloc_close_bracket( n42 ) )
@@ -1784,7 +1842,7 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -1895,16 +1953,16 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_adt( n37 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n38 = 0;
-      if( ! refalrts::alloc_name( n38, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n38, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n39 = 0;
       if( ! refalrts::alloc_open_bracket( n39 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n40 = 0;
-      if( ! refalrts::alloc_name( n40, & Declared, "Declared" ) )
+      if( ! refalrts::alloc_name( n40, & Declared ) )
         return refalrts::cNoMemory;
       refalrts::Iter n41 = 0;
-      if( ! refalrts::alloc_name( n41, & GN_Local, "GN_Local" ) )
+      if( ! refalrts::alloc_name( n41, & GN_Local ) )
         return refalrts::cNoMemory;
       refalrts::Iter n42 = 0;
       if( ! refalrts::alloc_close_bracket( n42 ) )
@@ -2085,7 +2143,7 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -2193,16 +2251,16 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_adt( n36 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n37 = 0;
-      if( ! refalrts::alloc_name( n37, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n37, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n38 = 0;
       if( ! refalrts::alloc_open_bracket( n38 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n39 = 0;
-      if( ! refalrts::alloc_name( n39, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n39, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n40 = 0;
-      if( ! refalrts::alloc_name( n40, & GN_Entry, "GN_Entry" ) )
+      if( ! refalrts::alloc_name( n40, & GN_Entry ) )
         return refalrts::cNoMemory;
       refalrts::Iter n41 = 0;
       if( ! refalrts::alloc_close_bracket( n41 ) )
@@ -2382,7 +2440,7 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -2490,16 +2548,16 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
       if( ! refalrts::alloc_open_adt( n36 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n37 = 0;
-      if( ! refalrts::alloc_name( n37, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n37, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n38 = 0;
       if( ! refalrts::alloc_open_bracket( n38 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n39 = 0;
-      if( ! refalrts::alloc_name( n39, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n39, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n40 = 0;
-      if( ! refalrts::alloc_name( n40, & GN_Local, "GN_Local" ) )
+      if( ! refalrts::alloc_name( n40, & GN_Local ) )
         return refalrts::cNoMemory;
       refalrts::Iter n41 = 0;
       if( ! refalrts::alloc_close_bracket( n41 ) )
@@ -2620,13 +2678,13 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_adt( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+    if( ! refalrts::alloc_name( n1, & TSymTable ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & Declared, "Declared" ) )
+    if( ! refalrts::alloc_name( n3, & Declared ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -2657,7 +2715,13 @@ refalrts::FnResult ST_AddDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_e
   );
 }
 
-refalrts::FnResult ST_AddIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_ST_AddIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ST_AddIdent = {
+  func_ST_AddIdent, "ST_AddIdent"
+};
+
+refalrts::FnResult func_ST_AddIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -2766,7 +2830,7 @@ refalrts::FnResult ST_AddIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end)
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+      if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, 'I' ) )
@@ -2853,13 +2917,13 @@ refalrts::FnResult ST_AddIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end)
       if( ! refalrts::alloc_open_adt( n29 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n30 = 0;
-      if( ! refalrts::alloc_name( n30, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n30, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n31 = 0;
       if( ! refalrts::alloc_open_bracket( n31 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n32 = 0;
-      if( ! refalrts::alloc_name( n32, & Identifier, "Identifier" ) )
+      if( ! refalrts::alloc_name( n32, & Identifier ) )
         return refalrts::cNoMemory;
       refalrts::Iter n33 = 0;
       if( ! refalrts::alloc_close_bracket( n33 ) )
@@ -2973,13 +3037,13 @@ refalrts::FnResult ST_AddIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_adt( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+    if( ! refalrts::alloc_name( n1, & TSymTable ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & Identifier, "Identifier" ) )
+    if( ! refalrts::alloc_name( n3, & Identifier ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -3010,7 +3074,13 @@ refalrts::FnResult ST_AddIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end)
   );
 }
 
-refalrts::FnResult ST_CheckDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_ST_CheckDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ST_CheckDeclared = {
+  func_ST_CheckDeclared, "ST_CheckDeclared"
+};
+
+refalrts::FnResult func_ST_CheckDeclared(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -3085,13 +3155,13 @@ refalrts::FnResult ST_CheckDeclared(refalrts::Iter arg_begin, refalrts::Iter arg
       if( ! refalrts::alloc_open_adt( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n1, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_open_bracket( n2 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n3 = 0;
-      if( ! refalrts::alloc_name( n3, & Declared, "Declared" ) )
+      if( ! refalrts::alloc_name( n3, & Declared ) )
         return refalrts::cNoMemory;
       refalrts::Iter n4 = 0;
       if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -3192,13 +3262,13 @@ refalrts::FnResult ST_CheckDeclared(refalrts::Iter arg_begin, refalrts::Iter arg
       if( ! refalrts::alloc_open_adt( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n1, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_open_bracket( n2 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n3 = 0;
-      if( ! refalrts::alloc_name( n3, & Defined, "Defined" ) )
+      if( ! refalrts::alloc_name( n3, & Defined ) )
         return refalrts::cNoMemory;
       refalrts::Iter n4 = 0;
       if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -3290,7 +3360,7 @@ refalrts::FnResult ST_CheckDeclared(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'F' ) )
@@ -3403,7 +3473,13 @@ refalrts::FnResult ST_CheckDeclared(refalrts::Iter arg_begin, refalrts::Iter arg
   );
 }
 
-refalrts::FnResult ST_CheckIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_ST_CheckIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ST_CheckIdent = {
+  func_ST_CheckIdent, "ST_CheckIdent"
+};
+
+refalrts::FnResult func_ST_CheckIdent(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -3478,13 +3554,13 @@ refalrts::FnResult ST_CheckIdent(refalrts::Iter arg_begin, refalrts::Iter arg_en
       if( ! refalrts::alloc_open_adt( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & TSymTable, "TSymTable" ) )
+      if( ! refalrts::alloc_name( n1, & TSymTable ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_open_bracket( n2 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n3 = 0;
-      if( ! refalrts::alloc_name( n3, & Identifier, "Identifier" ) )
+      if( ! refalrts::alloc_name( n3, & Identifier ) )
         return refalrts::cNoMemory;
       refalrts::Iter n4 = 0;
       if( ! refalrts::alloc_close_bracket( n4 ) )
@@ -3578,7 +3654,7 @@ refalrts::FnResult ST_CheckIdent(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt, "EL_AddErrorAt" ) )
+    if( ! refalrts::alloc_name( n1, & EL_AddErrorAt ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'I' ) )
@@ -3699,7 +3775,13 @@ refalrts::FnResult ST_CheckIdent(refalrts::Iter arg_begin, refalrts::Iter arg_en
   );
 }
 
-refalrts::FnResult ST_GetAnyName(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_ST_GetAnyName(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ST_GetAnyName = {
+  func_ST_GetAnyName, "ST_GetAnyName"
+};
+
+refalrts::FnResult func_ST_GetAnyName(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;

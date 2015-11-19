@@ -35,19 +35,19 @@ void valid_linked_aux( const char *text, refalrts::Iter i ) {
 }
 
 //==============================================================================
-// РџСЂРёРјРёС‚РёРІРЅС‹Рµ РѕРїРµСЂР°С†РёРё
+// Примитивные операции
 //==============================================================================
 
-// РћРїРµСЂР°С†РёРё СЂР°СЃРїРѕР·РЅР°РІР°РЅРёСЏ
+// Операции распознавания
 
 void refalrts::use( refalrts::Iter& ) {
-  /* РќРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµРј. Р­С‚Р° С„СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ, С‡С‚РѕР±С‹ РїРѕРґР°РІРёС‚СЊ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ
-  РєРѕРјРїРёР»СЏС‚РѕСЂР° Рѕ С‚РѕРј, С‡С‚Рѕ РїРµСЂРµРјРµРЅРЅР°СЏ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ */;
+  /* Ничего не делаем. Эта функция добавляется, чтобы подавить предупреждение
+  компилятора о том, что переменная не используется */;
 }
 
 void refalrts::use_counter( unsigned& ) {
-  /* РќРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµРј. Р­С‚Р° С„СѓРЅРєС†РёСЏ РґРѕР±Р°РІР»СЏРµС‚СЃСЏ, С‡С‚РѕР±С‹ РїРѕРґР°РІРёС‚СЊ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёРµ
-  РєРѕРјРїРёР»СЏС‚РѕСЂР° Рѕ С‚РѕРј, С‡С‚Рѕ РїРµСЂРµРјРµРЅРЅР°СЏ РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ */;
+  /* Ничего не делаем. Эта функция добавляется, чтобы подавить предупреждение
+  компилятора о том, что переменная не используется */;
 }
 
 namespace {
@@ -111,11 +111,7 @@ bool refalrts::empty_seq( refalrts::Iter first, refalrts::Iter last ) {
 }
 
 bool refalrts::function_left(
-#ifdef MODULE_REFAL
   refalrts::RefalFunctionPtr fn, refalrts::Iter& first, refalrts::Iter& last
-#else
-  const refalrts::RefalFunction *fn, refalrts::Iter& first, refalrts::Iter& last
-#endif
 ) {
   assert( (first == 0) == (last == 0) );
 
@@ -123,11 +119,7 @@ bool refalrts::function_left(
     return false;
   } else if( first->tag != cDataFunction ) {
     return false;
-#ifdef MODULE_REFAL
   } else if ( first->function_info.ptr != fn ) {
-#else
-  } else if ( first->function_info != fn ) {
-#endif
     return false;
   } else {
     move_left( first, last );
@@ -136,11 +128,7 @@ bool refalrts::function_left(
 }
 
 bool refalrts::function_right(
-#ifdef MODULE_REFAL
   refalrts::RefalFunctionPtr fn, refalrts::Iter& first, refalrts::Iter& last
-#else
-  const refalrts::RefalFunction *fn, refalrts::Iter& first, refalrts::Iter& last
-#endif
 ) {
   assert( (first == 0) == (last == 0) );
 
@@ -148,11 +136,7 @@ bool refalrts::function_right(
     return false;
   } else if ( cDataFunction != last->tag ) {
     return false;
-#ifdef MODULE_REFAL
   } else if ( last->function_info.ptr != fn ) {
-#else
-  } else if ( last->function_info != fn ) {
-#endif
     return false;
   } else {
     move_right( first, last );
@@ -331,11 +315,7 @@ bool refalrts::brackets_right(
 
 bool refalrts::adt_left(
   refalrts::Iter& res_first, refalrts::Iter& res_last,
-#ifdef MODULE_REFAL
   refalrts::RefalFunctionPtr tag,
-#else
-  const refalrts::RefalFunction *tag,
-#endif
   refalrts::Iter& first, refalrts::Iter& last
 ) {
   assert( (first == 0) == (last == 0) );
@@ -353,11 +333,7 @@ bool refalrts::adt_left(
       return false;
     } else if( cDataFunction != pnext->tag ) {
       return false;
-#ifdef MODULE_REFAL
     } else if( pnext->function_info.ptr != tag ) {
-#else
-    } else if( pnext->function_info != tag ) {
-#endif
       return false;
     } else {
       if( next( pnext ) != right_bracket ) {
@@ -382,11 +358,7 @@ bool refalrts::adt_left(
 
 bool refalrts::adt_right(
   refalrts::Iter& res_first, refalrts::Iter& res_last,
-#ifdef MODULE_REFAL
   refalrts::RefalFunctionPtr tag,
-#else
-  const refalrts::RefalFunction *tag,
-#endif
   refalrts::Iter& first, refalrts::Iter& last
 ) {
   assert( (first == 0) == (last == 0) );
@@ -404,11 +376,7 @@ bool refalrts::adt_right(
       return false;
     } else if( cDataFunction != pnext->tag ) {
       return false;
-#ifdef MODULE_REFAL
     } else if( pnext->function_info.ptr != tag ) {
-#else
-    } else if( pnext->function_info != tag ) {
-#endif
       return false;
     } else {
       if( next( pnext ) != right_bracket ) {
@@ -531,11 +499,7 @@ bool equal_nodes(
         // break;
 
       case refalrts::cDataFunction:
-#ifdef MODULE_REFAL
         return (node1->function_info.ptr == node2->function_info.ptr);
-#else
-        return (node1->function_info == node2->function_info);
-#endif
         // break;
 
       case refalrts::cDataIdentifier:
@@ -543,8 +507,8 @@ bool equal_nodes(
         // break;
 
       /*
-        РЎРІРµРґРµРЅРёСЏ Рѕ СЃРІСЏР·СЏС… РјРµР¶РґСѓ СЃРєРѕР±РєР°РјРё РЅСѓР¶РЅС‹ РґР»СЏ РґСЂСѓРіРёС… С†РµР»РµР№, Р·РґРµСЃСЊ
-        Р¶Рµ РЅР°Рј РІР°Р¶РЅС‹ С‚РѕР»СЊРєРѕ РёС… РѕРґРЅРѕРІСЂРµРјРµРЅРЅС‹Рµ РїРѕСЏРІР»РµРЅРёСЏ.
+        Сведения о связях между скобками нужны для других целей, здесь
+        же нам важны только их одновременные появления.
       */
       case refalrts::cDataOpenBracket:
       case refalrts::cDataCloseBracket:
@@ -562,15 +526,15 @@ bool equal_nodes(
         // break;
 
       /*
-        Р”Р°РЅРЅР°СЏ С„СѓРЅРєС†РёСЏ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° С‚РѕР»СЊРєРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ С„СѓРЅРєС†РёСЏРјРё СЂР°СЃ-
-        РїРѕР·РЅР°РІР°РЅРёСЏ РѕР±СЂР°Р·С†Р°. РџРѕСЌС‚РѕРјСѓ РґСЂСѓРіРёС… СѓР·Р»РѕРІ РјС‹ С‚СѓС‚ РЅРµ РѕР¶РёРґР°РµРј.
+        Данная функция предназначена только для использования функциями рас-
+        познавания образца. Поэтому других узлов мы тут не ожидаем.
       */
       default:
         assert( SWITCH_DEFAULT_VIOLATION );
         throw refalrts::UnexpectedTypeException();
         // break;
     }
-    // Р’СЃРµ РІРµС‚РІРё РІ case Р·Р°РІРµСЂС€Р°СЋС‚СЃСЏ Р»РёР±Рѕ return, Р»РёР±Рѕ throw.
+    // Все ветви в case завершаются либо return, либо throw.
   }
 }
 
@@ -600,8 +564,8 @@ bool equal_expressions(
   clock_t start_match = clock();
 
   for(
-    /* РџРѕР»СЊР·СѓРµРјСЃСЏ Р°СЂРіСѓРјРµРЅС‚Р°РјРё С„СѓРЅРєС†РёРё, РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РЅРµ РЅСѓР¶РЅР° */;
-    // РџРѕСЂСЏРґРѕРє СѓСЃР»РѕРІРёР№ РІР°Р¶РµРЅ
+    /* Пользуемся аргументами функции, инициализация не нужна */;
+    // Порядок условий важен
     ! refalrts::empty_seq( first1, last1 )
       && ! refalrts::empty_seq( first2, last2 )
       && equal_nodes( first1, first2 );
@@ -611,19 +575,19 @@ bool equal_expressions(
   }
 
   /*
-    Р—РґРµСЃСЊ empty_seq( first1, last1 ) || empty_seq( first2, last2 )
+    Здесь empty_seq( first1, last1 ) || empty_seq( first2, last2 )
       || !equal_nodes( first1, first2 )
   */
 
   refalrts::profiler::add_match_repeated_tvar_time(clock() - start_match);
 
-  // РЈСЃРїРµС€РЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ -- РµСЃР»Рё РјС‹ РґРѕСЃС‚РёРіР»Рё РєРѕРЅС†Р° РІ РѕР±РѕРёС… РІС‹СЂР°Р¶РµРЅРёСЏС…
+  // Успешное завершение -- если мы достигли конца в обоих выражениях
   if(
     refalrts::empty_seq( first1, last1 ) && refalrts::empty_seq( first2, last2 )
   ) {
     return true;
   } else {
-    // Р›СЋР±РѕРµ РґСЂСѓРіРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ С†РёРєР»Р° СЃРІРёРґРµС‚РµР»СЊСЃС‚РІСѓРµС‚ Рѕ РЅРµСЃРѕРІРїР°РґРµРЅРёРё
+    // Любое другое завершение цикла свидетельствует о несовпадении
     return false;
   }
 }
@@ -723,8 +687,8 @@ bool refalrts::repeated_evar_left(
   refalrts::Iter copy_last = last;
 
   for(
-    /* РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІС‹С€Рµ */;
-    // РїРѕСЂСЏРґРѕРє СѓСЃР»РѕРІРёР№ РІР°Р¶РµРЅ
+    /* инициализация выше */;
+    // порядок условий важен
     !empty_seq( current, copy_last )
       && !empty_seq( cur_sample, evar_e_sample )
       && equal_nodes( current, cur_sample );
@@ -736,12 +700,12 @@ bool refalrts::repeated_evar_left(
   refalrts::profiler::add_match_repeated_evar_time(clock() - start_match);
 
   /*
-    Р—РґРµСЃСЊ empty_seq( current, copy_last )
+    Здесь empty_seq( current, copy_last )
       || empty_seq( cur_sample, evar_e_sample
       || ! equal_nodes( current, cur_sample )
   */
   if( empty_seq( cur_sample, evar_e_sample ) ) {
-    // Р­С‚Рѕ РЅРѕСЂРјР°Р»СЊРЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ С†РёРєР»Р° -- РІСЃСЏ РѕР±СЂР°Р·С†РѕРІР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РїСЂРѕРІРµСЂРµРЅР°
+    // Это нормальное завершение цикла -- вся образцовая переменная проверена
 
     if( empty_seq( current, copy_last ) ) {
       evar_b = first;
@@ -773,8 +737,8 @@ bool refalrts::repeated_evar_right(
   refalrts::Iter copy_first = first;
 
   for(
-    /* РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІС‹С€Рµ */;
-    // РїРѕСЂСЏРґРѕРє РїРµСЂРµС‡РёСЃР»РµРЅРёСЏ СѓСЃР»РѕРІРёР№ РІР°Р¶РµРЅ
+    /* инициализация выше */;
+    // порядок перечисления условий важен
     !empty_seq( copy_first, current )
       && !empty_seq( evar_b_sample, cur_sample )
       && equal_nodes( current, cur_sample );
@@ -786,13 +750,13 @@ bool refalrts::repeated_evar_right(
   refalrts::profiler::add_match_repeated_evar_time(clock() - start_match);
 
   /*
-    Р—РґРµСЃСЊ empty_seq( copy_first, current )
+    Здесь empty_seq( copy_first, current )
       || empty_seq( evar_b_sample, cur_sample )
       || ! equal_nodes( current, cur_sample )
   */
 
   if( empty_seq( evar_b_sample, cur_sample ) ) {
-    // Р­С‚Рѕ РЅРѕСЂРјР°Р»СЊРЅРѕРµ Р·Р°РІРµСЂС€РµРЅРёРµ С†РёРєР»Р°: РІСЃСЏ РїРµСЂРµРјРµРЅРЅР°СЏ-РѕР±СЂР°Р·РµС† РїСЂРѕСЃРјРѕС‚СЂРµРЅР°
+    // Это нормальное завершение цикла: вся переменная-образец просмотрена
 
     if( empty_seq( copy_first, current ) ) {
       evar_b = first;
@@ -859,7 +823,7 @@ unsigned refalrts::read_chars(
 
 //------------------------------------------------------------------------------
 
-// РћРїРµСЂР°С†РёРё СЂР°СЃРїСЂРµРґРµР»РёС‚РµР»СЏ РїР°РјСЏС‚Рё
+// Операции распределителя памяти
 
 namespace refalrts{
 
@@ -877,7 +841,7 @@ void splice_from_freelist( Iter pos );
 
 //------------------------------------------------------------------------------
 
-// РЎСЂРµРґСЃС‚РІР° РїСЂРѕС„РёР»РёСЂРѕРІР°РЅРёСЏ
+// Средства профилирования
 
 namespace refalrts {
 
@@ -891,7 +855,7 @@ extern void start_building_result();
 
 //------------------------------------------------------------------------------
 
-// РћРїРµСЂР°С†РёРё РїРѕСЃС‚СЂРѕРµРЅРёСЏ СЂРµР·СѓР»СЊС‚Р°С‚Р°
+// Операции построения результата
 
 void refalrts::reset_allocator() {
   profiler::start_building_result();
@@ -911,13 +875,9 @@ bool copy_node( refalrts::Iter& res, refalrts::Iter sample ) {
       // break;
 
     case refalrts::cDataFunction:
-#ifdef MODULE_REFAL
       return refalrts::alloc_name(
         res, sample->function_info.ptr, sample->function_info.name
       );
-#else
-      return refalrts::alloc_name(res, sample->function_info);
-#endif
       // break;
 
     case refalrts::cDataIdentifier:
@@ -967,8 +927,8 @@ bool copy_node( refalrts::Iter& res, refalrts::Iter sample ) {
     // break;
 
     /*
-      РљРѕРїРёСЂСѓРµРј С‚РѕР»СЊРєРѕ РѕР±СЉРµРєС‚РЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ -- РЅРёРєР°РєРёС… РІС‹Р·РѕРІРѕРІ С„СѓРЅРєС†РёР№
-      Р±С‹С‚СЊ РЅРµ РґРѕР»Р¶РЅРѕ.
+      Копируем только объектное выражение -- никаких вызовов функций
+      быть не должно.
     */
     default:
       assert( SWITCH_DEFAULT_VIOLATION );
@@ -1122,25 +1082,17 @@ const char *unknown = "@unknown";
 
 bool refalrts::alloc_name(
   refalrts::Iter& res,
-#ifdef MODULE_REFAL
   refalrts::RefalFunctionPtr fn,
   refalrts::RefalFuncName name
-#else
-  const refalrts::RefalFunction *fn
-#endif
 ) {
   if( allocator::alloc_node( res ) ) {
     res->tag = cDataFunction;
-#ifdef MODULE_REFAL
     res->function_info.ptr = fn;
     if( name != 0 ) {
       res->function_info.name = name;
     } else {
       res->function_info.name = unknown;
     }
-#else
-    res->function_info = fn;
-#endif
     return true;
   } else {
     return false;
@@ -1316,7 +1268,7 @@ refalrts::Iter list_splice(
 
   if( (res == begin) || refalrts::empty_seq( begin, end ) ) {
 
-    // Р¦РµР»СЊ РґРѕСЃС‚РёРіРЅСѓС‚Р° СЃР°РјР° РїРѕ СЃРµР±Рµ
+    // Цель достигнута сама по себе
     return res;
   } else {
     refalrts::Iter prev_res = prev( res );
@@ -1373,17 +1325,15 @@ void refalrts::splice_from_freelist( refalrts::Iter pos ) {
   allocator::splice_from_freelist( pos );
 }
 
-namespace {
-
-refalrts::FnResult func_create_closure(
+refalrts::FnResult refalrts::create_closure(
   refalrts::Iter begin, refalrts::Iter end
 ) {
   refalrts::Iter closure_b = begin;
   refalrts::Iter closure_e = end;
 
-  refalrts::move_left( closure_b, closure_e ); // РїСЂРѕРїСѓСЃРє <
-  refalrts::move_left( closure_b, closure_e ); // РїСЂРѕРїСѓСЃРє РёРјРµРЅРё С„СѓРЅРєС†РёРё
-  refalrts::move_right( closure_b, closure_e ); // РїСЂРѕРїСѓСЃРє >
+  refalrts::move_left( closure_b, closure_e ); // пропуск <
+  refalrts::move_left( closure_b, closure_e ); // пропуск имени функции
+  refalrts::move_right( closure_b, closure_e ); // пропуск >
 
   if( empty_seq( closure_b, closure_e ) )
     return refalrts::cRecognitionImpossible;
@@ -1402,20 +1352,14 @@ refalrts::FnResult func_create_closure(
   return refalrts::cSuccess;
 }
 
-}
-
-refalrts::RefalFunction refalrts::create_closure = {
-  & func_create_closure, "@create_closure@"
-};
-
 /*
-  РЎРѕР±СЃС‚РІРµРЅРЅРѕ Р·Р°РјС‹РєР°РЅРёРµ (С„СѓРЅРєС†РёСЏ + РєРѕРЅС‚РµРєСЃС‚) РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РєР°Рє
-  [next(head), prev(head)]. Рў.Рє. Р·Р°РјС‹РєР°РЅРёРµ СЃРѕР·РґР°С‘С‚СЃСЏ С‚РѕР»СЊРєРѕ С„СѓРЅРєС†РёРµР№
-  create_closure, РєРѕС‚РѕСЂР°СЏ РіР°СЂР°РЅС‚РёСЂСѓРµС‚ РЅРµРїСѓСЃС‚РѕС‚Сѓ Р·Р°РјС‹РєР°РЅРёСЏ, С‚Рѕ
+  Собственно замыкание (функция + контекст) определяется как
+  [next(head), prev(head)]. Т.к. замыкание создаётся только функцией
+  create_closure, которая гарантирует непустоту замыкания, то
   next(head) != head, prev(head) != head.
 */
 
-// Р Р°Р·РІРµСЂРЅСѓС‚СЊ Р·Р°РјС‹РєР°РЅРёРµ
+// Развернуть замыкание
 refalrts::Iter refalrts::unwrap_closure( refalrts::Iter closure ) {
   assert( closure->tag == refalrts::cDataClosure );
 
@@ -1434,7 +1378,7 @@ refalrts::Iter refalrts::unwrap_closure( refalrts::Iter closure ) {
   return prev(head);
 }
 
-// РЎРІРµСЂРЅСѓС‚СЊ Р·Р°РјС‹РєР°РЅРёРµ
+// Свернуть замыкание
 refalrts::Iter refalrts::wrap_closure( refalrts::Iter closure ) {
   assert( closure->tag == refalrts::cDataUnwrappedClosure );
 
@@ -1455,7 +1399,7 @@ refalrts::Iter refalrts::wrap_closure( refalrts::Iter closure ) {
 
 //------------------------------------------------------------------------------
 
-// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РіРѕР»РѕРІРЅРѕРіРѕ СѓР·Р»Р° СЃС‚Р°С‚РёС‡РµСЃРєРѕРіРѕ СЏС‰РёРєР°
+// Инициализация головного узла статического ящика
 
 namespace refalrts {
 
@@ -1467,18 +1411,14 @@ extern NodePtr g_left_swap_ptr;
 
 } // namespace refalrts
 
-refalrts::Iter refalrts::initialize_swap_head(
-  refalrts::Iter head, refalrts::RefalSwapHead *holder
-) {
+refalrts::Iter refalrts::initialize_swap_head( refalrts::Iter head ) {
   assert( cDataFunction == head->tag );
 
-  holder->next_head = vm::g_left_swap_ptr;
-  holder->name = head->function_info->name;
-
   splice_elem( vm::g_left_swap_ptr, head );
+  refalrts::RefalFuncName name = head->function_info.name;
   head->tag = cDataSwapHead;
-  head->swap_info = holder;
-
+  head->swap_info.next_head = vm::g_left_swap_ptr;
+  head->swap_info.name = name;
   vm::g_left_swap_ptr = head;
   return vm::g_left_swap_ptr;
 }
@@ -1489,7 +1429,7 @@ void refalrts::swap_info_bounds(
   assert( cDataSwapHead == head->tag );
 
   first = head;
-  last = head->swap_info->next_head;
+  last = head->swap_info.next_head;
   move_left( first, last );
   move_right( first, last );
 }
@@ -1499,12 +1439,12 @@ void refalrts::swap_save(
 ) {
   assert( cDataSwapHead == head->tag );
 
-  list_splice( head->swap_info->next_head, first, last );
+  list_splice( head->swap_info.next_head, first, last );
 }
 
 //------------------------------------------------------------------------------
 
-// РЎСЂРµРґСЃС‚РІР° РїСЂРѕС„РёР»РёСЂРѕРІР°РЅРёСЏ
+// Средства профилирования
 
 namespace refalrts {
 
@@ -1541,7 +1481,7 @@ void refalrts::start_e_loop() {
 
 //------------------------------------------------------------------------------
 
-// РџСЂРѕС‡РёРµ РѕРїРµСЂР°С†РёРё
+// Прочие операции
 
 namespace refalrts {
 
@@ -1565,7 +1505,7 @@ void refalrts::debug_print_expr(
 }
 
 //==============================================================================
-// Р Р°СЃРїСЂРµРґРµР»РёС‚РµР»СЊ РїР°РјСЏС‚Рё
+// Распределитель памяти
 //==============================================================================
 
 namespace refalrts {
@@ -1623,7 +1563,7 @@ bool refalrts::allocator::alloc_node( refalrts::Iter& node ) {
 
       if( 0 == head->number_info ) {
         unwrap_closure( g_free_ptr );
-        // С‚РµРїРµСЂСЊ РїРµСЂРµРґ g_free_ptr РЅР°С…РѕРґРёС‚СЃСЏ "СЂР°Р·РІС‘СЂРЅСѓС‚РѕРµ" Р·Р°РјС‹РєР°РЅРёРµ
+        // теперь перед g_free_ptr находится "развёрнутое" замыкание
         g_free_ptr->tag = refalrts::cDataClosureHead;
         g_free_ptr->number_info = 407193; // :-)
 
@@ -1729,7 +1669,7 @@ void refalrts::allocator::pool::free() {
 }
 
 //==============================================================================
-// РЈРїСЂРѕС‰С‘РЅРЅС‹Р№ РїСЂРѕС„РёР»РёСЂРѕРІС‰РёРє
+// Упрощённый профилировщик
 //==============================================================================
 
 namespace refalrts {
@@ -1784,7 +1724,7 @@ inline double divide(double numerator, double denominator) {
   }
 }
 
-} // Р±РµР·С‹РјСЏРЅРЅРѕРµ namespace
+} // безымянное namespace
 
 #endif // DONT_PRINT_STATISTICS
 
@@ -1944,8 +1884,18 @@ void refalrts::profiler::stop_e_loop() {
 }
 
 //==============================================================================
-// Р’РёСЂС‚СѓР°Р»СЊРЅР°СЏ РјР°С€РёРЅР°
+// Виртуальная машина
 //==============================================================================
+
+#ifdef MODULE_REFAL
+#define GO_START_FUNCTION Entry_Go
+#else
+#define GO_START_FUNCTION Go
+#endif
+
+extern refalrts::FnResult GO_START_FUNCTION(
+  refalrts::Iter, refalrts::Iter
+);
 
 namespace refalrts {
 
@@ -2000,9 +1950,6 @@ bool refalrts::vm::empty_stack() {
 }
 
 #ifdef MODULE_REFAL
-
-extern refalrts::FnResult Entry_Go(refalrts::Iter, refalrts::Iter);
-
 //$LABEL Go
 template <typename T>
 struct GoL_ {
@@ -2010,11 +1957,9 @@ struct GoL_ {
     return "Go";
   }
 };
-
+#define GO_NAME GoL_<int>::name
 #else
-
-extern refalrts::RefalFunction Go;
-
+#define GO_NAME "Go"
 #endif
 
 bool refalrts::vm::init_view_field() {
@@ -2024,11 +1969,7 @@ bool refalrts::vm::init_view_field() {
   if( ! refalrts::alloc_open_call( n0 ) )
     return false;
   refalrts::Iter n1 = 0;
-#ifdef MODULE_REFAL
-  if( ! refalrts::alloc_name( n1, & Entry_Go, GoL_<int>::name ) )
-#else
-  if( ! refalrts::alloc_name( n1, & Go ) )
-#endif
+  if( ! refalrts::alloc_name( n1, & GO_START_FUNCTION, GO_NAME ) )
     return false;
   refalrts::Iter n2 = 0;
   if( ! refalrts::alloc_close_call( n2 ) )
@@ -2098,24 +2039,18 @@ refalrts::FnResult refalrts::vm::execute_active(
 
   refalrts::Iter function = next( begin );
   if( cDataFunction == function->tag ) {
-#ifdef MODULE_REFAL
     return refalrts::FnResult(
       (function->function_info.ptr)( begin, end ) & 0xFFU
     );
-#else
-    return refalrts::FnResult(
-      (function->function_info->ptr)( begin, end ) & 0xFFU
-    );
-#endif
   } else if( cDataClosure == function->tag ) {
     refalrts::Iter head = function->link_info;
 
     if( 1 == head->number_info ) {
       /*
-        РџРѕР»СЊР·СѓРµРјСЃСЏ С‚РµРј, С‡С‚Рѕ РїСЂРё СЂР°Р·РІС‘СЂС‚РєРµ СЃРѕРґРµСЂР¶РёРјРѕРµ Р·Р°РјС‹РєР°РЅРёСЏ РѕРєР°Р·С‹РІР°РµС‚СЃСЏ
-        РІ РїРѕР»Рµ Р·СЂРµРЅРёСЏ РјРµР¶РґСѓ РіРѕР»РѕРІРѕР№ Рё (СЂР°Р·РІС‘СЂРЅСѓС‚С‹Рј!) СѓР·Р»РѕРј Р·Р°РјС‹РєР°РЅРёСЏ.
-        Р’Рѕ РёР·Р±РµР¶Р°РЅРёРµ РїСЂРѕР±Р»РµРј, СЃРІСЏР·Р°РЅРЅС‹Рј СЃ РїРѕРјРµС‰РµРЅРёРµРј СЂР°Р·РІС‘СЂРЅСѓС‚РѕРіРѕ Р·Р°РјС‹РєР°РЅРёСЏ
-        РІ СЃРїРёСЃРѕРє СЃРІРѕР±РѕРґРЅС‹С… Р±Р»РѕРєРѕРІ, РїСЂРѕРёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РµРіРѕ РєР°Рє РіРѕР»РѕРІСѓ Р·Р°РјС‹РєР°РЅРёСЏ.
+        Пользуемся тем, что при развёртке содержимое замыкания оказывается
+        в поле зрения между головой и (развёрнутым!) узлом замыкания.
+        Во избежание проблем, связанным с помещением развёрнутого замыкания
+        в список свободных блоков, проинициализируем его как голову замыкания.
       */
       unwrap_closure( function );
       function->tag = cDataClosureHead;
@@ -2151,7 +2086,7 @@ void print_indent(FILE *output, unsigned level)
   putc( '\n', output );
   for( unsigned i = 0; i < level; ++i )
   {
-    // РљР°Р¶РґС‹Рµ cPERIOD РїРѕР·РёС†РёР№ РІРјРµСЃС‚Рѕ РїСЂРѕР±РµР»Р° СЃС‚Р°РІРёРј С‚РѕС‡РєСѓ.
+    // Каждые cPERIOD позиций вместо пробела ставим точку.
     bool put_marker = ((i % cPERIOD) == (cPERIOD - 1));
 
     const char cSpace =  ' ';
@@ -2205,9 +2140,9 @@ void refalrts::vm::print_seq(
 
           case refalrts::cDataSwapHead:
 #ifdef MODULE_REFAL
-            fprintf( output, "\n\n*Swap %s:\n", (begin->swap_info->name)() );
+            fprintf( output, "\n\n*Swap %s:\n", (begin->swap_info.name)() );
 #else
-            fprintf( output, "\n\n*Swap %s:\n", begin->swap_info->name );
+            fprintf( output, "\n\n*Swap %s:\n", begin->swap_info.name );
 #endif
             refalrts::move_left( begin, end );
             continue;
@@ -2226,7 +2161,11 @@ void refalrts::vm::print_seq(
 #ifdef MODULE_REFAL
             fprintf( output, "&%s ", (begin->function_info.name)() );
 #else
-            fprintf( output, "&%s ", begin->function_info->name );
+            if( begin->function_info.name[0] != 0 ) {
+              fprintf( output, "&%s ", begin->function_info.name );
+            } else {
+              fprintf( output, "&%p ", begin->function_info.ptr );
+            }
 #endif
             refalrts::move_left( begin, end );
             continue;
@@ -2406,8 +2345,8 @@ FILE *refalrts::vm::dump_stream() {
   static FILE *dump_file = 0;
 
   if( dump_file == 0 ) {
-    // РќРµРѕР±С…РѕРґРёРјРѕ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р».
-    // Р•СЃР»Рё С„Р°Р№Р» РЅРµ РѕС‚РєСЂС‹РІР°РµС‚СЃСЏ, РёСЃРїРѕР»СЊР·СѓРµРј stderr
+    // Необходимо открыть файл.
+    // Если файл не открывается, используем stderr
     dump_file = fopen( DUMP_FILE, "wt" );
 
     if( dump_file == 0 ) {
@@ -2433,7 +2372,7 @@ void refalrts::vm::free_view_field() {
     refalrts::allocator::splice_to_freelist( begin, end );
   } else {
     /*
-      РџРѕР»Рµ Р·СЂРµРЅРёСЏ РїСѓСЃС‚РѕРµ -- РµРіРѕ РЅРµ РЅСѓР¶РЅРѕ РѕСЃРІРѕР±РѕР¶РґР°С‚СЊ.
+      Поле зрения пустое -- его не нужно освобождать.
     */;
   }
 
@@ -2443,7 +2382,7 @@ void refalrts::vm::free_view_field() {
 }
 
 //==============================================================================
-// РРЅС‚РµСЂРїСЂРµС‚Р°С‚РѕСЂ
+// Интерпретатор
 //==============================================================================
 
 refalrts::FnResult refalrts::interpret_array(
@@ -2458,7 +2397,7 @@ refalrts::FnResult refalrts::interpret_array(
 
   while(raa[i].cmd != icEnd)
   {
-    //Р’С‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё
+    //Выделение памяти
     switch(raa[i].cmd)
     {
       case icChar:
@@ -2477,7 +2416,8 @@ refalrts::FnResult refalrts::interpret_array(
         if(
             !alloc_name(
               *allocs,
-              (const RefalFunction*)(raa[i].ptr_value1)
+              (RefalFunctionPtr)(raa[i].ptr_value1),
+              (RefalFuncName)(raa[i].ptr_value2)
             )
         )
           return cNoMemory;
@@ -2590,7 +2530,7 @@ refalrts::FnResult refalrts::interpret_array(
 
   while(i >= 0)
   {
-    //РљРѕРјРїРѕРЅРѕРІРєР° СЃС‚РµРєР°
+    //Компоновка стека
     switch(raa[i].cmd)
     {
       case icChar:
@@ -2649,7 +2589,7 @@ refalrts::FnResult refalrts::interpret_array(
 
 //==============================================================================
 
-// РСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ РІ Library.cpp
+// Используются в Library.cpp
 
 char **g_argv = 0;
 int g_argc = 0;

@@ -2,23 +2,33 @@
 #include "refalrts.h"
 
 
-extern refalrts::FnResult LoadFile(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction LoadFile;
 
-extern refalrts::FnResult MapReduce(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction MapReduce;
 
-extern refalrts::FnResult FastIntFromStr(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction FastIntFromStr;
 
-extern refalrts::FnResult DelAccumulator(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction DelAccumulator;
 
-extern refalrts::FnResult Inc(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction Inc;
 
-extern refalrts::FnResult Map(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction Map;
 
-extern refalrts::FnResult Chr(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction Chr;
 
-extern refalrts::FnResult StrFromInt(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+extern refalrts::RefalFunction StrFromInt;
 
-static refalrts::FnResult LinearizeLine(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_LinearizeLine
+#define defined_LinearizeLine
+static refalrts::FnResult func_LinearizeLine(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction LinearizeLine = {
+  func_LinearizeLine, "LinearizeLine"
+};
+
+#endif /* LinearizeLine */
+
+static refalrts::FnResult func_LinearizeLine(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -66,11 +76,33 @@ static refalrts::FnResult LinearizeLine(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult NormalizeTokens(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_NormalizeTokens
+#define defined_NormalizeTokens
+static refalrts::FnResult func_NormalizeTokens(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction NormalizeTokens = {
+  func_NormalizeTokens, "NormalizeTokens"
+};
 
-refalrts::FnResult LexFolding(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#endif /* NormalizeTokens */
+
+#ifndef defined_Root
+#define defined_Root
+static refalrts::FnResult func_Root(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Root = {
+  func_Root, "Root"
+};
+
+#endif /* Root */
+
+static refalrts::FnResult func_LexFolding(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction LexFolding = {
+  func_LexFolding, "LexFolding"
+};
+
+refalrts::FnResult func_LexFolding(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -114,13 +146,13 @@ refalrts::FnResult LexFolding(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & NormalizeTokens, "NormalizeTokens" ) )
+    if( ! refalrts::alloc_name( n1, & NormalizeTokens ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_call( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n3, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_open_bracket( n4 ) )
@@ -132,16 +164,16 @@ refalrts::FnResult LexFolding(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
     if( ! refalrts::alloc_open_call( n6 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n7 = 0;
-    if( ! refalrts::alloc_name( n7, & Map, "Map" ) )
+    if( ! refalrts::alloc_name( n7, & Map ) )
       return refalrts::cNoMemory;
     refalrts::Iter n8 = 0;
-    if( ! refalrts::alloc_name( n8, & LinearizeLine, "LinearizeLine" ) )
+    if( ! refalrts::alloc_name( n8, & LinearizeLine ) )
       return refalrts::cNoMemory;
     refalrts::Iter n9 = 0;
     if( ! refalrts::alloc_open_call( n9 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n10 = 0;
-    if( ! refalrts::alloc_name( n10, & LoadFile, "LoadFile" ) )
+    if( ! refalrts::alloc_name( n10, & LoadFile ) )
       return refalrts::cNoMemory;
     refalrts::Iter n11 = 0;
     if( ! refalrts::alloc_close_call( n11 ) )
@@ -191,210 +223,394 @@ refalrts::FnResult LexFolding(refalrts::Iter arg_begin, refalrts::Iter arg_end) 
   );
 }
 
-refalrts::FnResult TkChar(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkChar(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkChar = {
+  func_TkChar, "TkChar"
+};
+
+refalrts::FnResult func_TkChar(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkCloseADT(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkCloseADT(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkCloseADT = {
+  func_TkCloseADT, "TkCloseADT"
+};
+
+refalrts::FnResult func_TkCloseADT(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkCloseCall(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkCloseCall(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkCloseCall = {
+  func_TkCloseCall, "TkCloseCall"
+};
+
+refalrts::FnResult func_TkCloseCall(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkCloseBlock(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkCloseBlock(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkCloseBlock = {
+  func_TkCloseBlock, "TkCloseBlock"
+};
+
+refalrts::FnResult func_TkCloseBlock(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkCloseBracket(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkCloseBracket(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkCloseBracket = {
+  func_TkCloseBracket, "TkCloseBracket"
+};
+
+refalrts::FnResult func_TkCloseBracket(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkComma(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkComma(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkComma = {
+  func_TkComma, "TkComma"
+};
+
+refalrts::FnResult func_TkComma(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkDirective(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkDirective = {
+  func_TkDirective, "TkDirective"
+};
+
+refalrts::FnResult func_TkDirective(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkEOF(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkEOF(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkEOF = {
+  func_TkEOF, "TkEOF"
+};
+
+refalrts::FnResult func_TkEOF(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkError(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkError(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkError = {
+  func_TkError, "TkError"
+};
+
+refalrts::FnResult func_TkError(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkIdentMarker(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkIdentMarker(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkIdentMarker = {
+  func_TkIdentMarker, "TkIdentMarker"
+};
+
+refalrts::FnResult func_TkIdentMarker(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkName(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkName(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkName = {
+  func_TkName, "TkName"
+};
+
+refalrts::FnResult func_TkName(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkNumber(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkNumber(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkNumber = {
+  func_TkNumber, "TkNumber"
+};
+
+refalrts::FnResult func_TkNumber(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkOpenADT(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkOpenADT(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkOpenADT = {
+  func_TkOpenADT, "TkOpenADT"
+};
+
+refalrts::FnResult func_TkOpenADT(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkOpenCall(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkOpenCall(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkOpenCall = {
+  func_TkOpenCall, "TkOpenCall"
+};
+
+refalrts::FnResult func_TkOpenCall(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkOpenBlock(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkOpenBlock(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkOpenBlock = {
+  func_TkOpenBlock, "TkOpenBlock"
+};
+
+refalrts::FnResult func_TkOpenBlock(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkOpenBracket(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkOpenBracket(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkOpenBracket = {
+  func_TkOpenBracket, "TkOpenBracket"
+};
+
+refalrts::FnResult func_TkOpenBracket(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkReplace(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkReplace(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkReplace = {
+  func_TkReplace, "TkReplace"
+};
+
+refalrts::FnResult func_TkReplace(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkSemicolon(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkSemicolon(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkSemicolon = {
+  func_TkSemicolon, "TkSemicolon"
+};
+
+refalrts::FnResult func_TkSemicolon(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkUnexpected(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkUnexpected = {
+  func_TkUnexpected, "TkUnexpected"
+};
+
+refalrts::FnResult func_TkUnexpected(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkVariable(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkVariable(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkVariable = {
+  func_TkVariable, "TkVariable"
+};
+
+refalrts::FnResult func_TkVariable(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult TkRedefinition(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_TkRedefinition(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction TkRedefinition = {
+  func_TkRedefinition, "TkRedefinition"
+};
+
+refalrts::FnResult func_TkRedefinition(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult EEnum(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_EEnum(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction EEnum = {
+  func_EEnum, "EEnum"
+};
+
+refalrts::FnResult func_EEnum(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult Entry(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_Entry(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction Entry = {
+  func_Entry, "Entry"
+};
+
+refalrts::FnResult func_Entry(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult Enum(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_Enum(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction Enum = {
+  func_Enum, "Enum"
+};
+
+refalrts::FnResult func_Enum(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult Extern(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_Extern(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction Extern = {
+  func_Extern, "Extern"
+};
+
+refalrts::FnResult func_Extern(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult Forward(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_Forward(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction Forward = {
+  func_Forward, "Forward"
+};
+
+refalrts::FnResult func_Forward(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult Swap(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_Swap(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction Swap = {
+  func_Swap, "Swap"
+};
+
+refalrts::FnResult func_Swap(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult ESwap(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_ESwap(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction ESwap = {
+  func_ESwap, "ESwap"
+};
+
+refalrts::FnResult func_ESwap(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-refalrts::FnResult Ident(refalrts::Iter, refalrts::Iter) {
+static refalrts::FnResult func_Ident(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction Ident = {
+  func_Ident, "Ident"
+};
+
+refalrts::FnResult func_Ident(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult StrDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_StrDirective
+#define defined_StrDirective
+static refalrts::FnResult func_StrDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StrDirective = {
+  func_StrDirective, "StrDirective"
+};
+
+#endif /* StrDirective */
+
+static refalrts::FnResult func_StrDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -846,7 +1062,13 @@ struct CClose {
   }
 };
 
-refalrts::FnResult StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::FnResult func_StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+refalrts::RefalFunction StrFromToken = {
+  func_StrFromToken, "StrFromToken"
+};
+
+refalrts::FnResult func_StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -1148,7 +1370,7 @@ refalrts::FnResult StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end
     if( ! refalrts::alloc_open_call( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & StrDirective, "StrDirective" ) )
+    if( ! refalrts::alloc_name( n3, & StrDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_close_call( n4 ) )
@@ -1512,7 +1734,7 @@ refalrts::FnResult StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end
     if( ! refalrts::alloc_open_call( n7 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n8 = 0;
-    if( ! refalrts::alloc_name( n8, & StrFromInt, "StrFromInt" ) )
+    if( ! refalrts::alloc_name( n8, & StrFromInt ) )
       return refalrts::cNoMemory;
     refalrts::Iter n9 = 0;
     if( ! refalrts::alloc_close_call( n9 ) )
@@ -2064,7 +2286,7 @@ refalrts::FnResult StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StrFromToken, "StrFromToken" ) )
+    if( ! refalrts::alloc_name( n1, & StrFromToken ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_call( n2 ) )
@@ -2114,7 +2336,7 @@ refalrts::FnResult StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StrFromToken, "StrFromToken" ) )
+    if( ! refalrts::alloc_name( n1, & StrFromToken ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_call( n2 ) )
@@ -2136,88 +2358,224 @@ refalrts::FnResult StrFromToken(refalrts::Iter arg_begin, refalrts::Iter arg_end
   );
 }
 
-static refalrts::FnResult TkLiteral_Char(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TkLiteral_Char
+#define defined_TkLiteral_Char
+static refalrts::FnResult func_TkLiteral_Char(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TkLiteral_Char = {
+  func_TkLiteral_Char, "TkLiteral_Char"
+};
+
+#endif /* TkLiteral_Char */
+
+static refalrts::FnResult func_TkLiteral_Char(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TkLiteral_Code(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TkLiteral_Code
+#define defined_TkLiteral_Code
+static refalrts::FnResult func_TkLiteral_Code(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TkLiteral_Code = {
+  func_TkLiteral_Code, "TkLiteral_Code"
+};
+
+#endif /* TkLiteral_Code */
+
+static refalrts::FnResult func_TkLiteral_Code(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TkLiteral_NewLine(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TkLiteral_NewLine
+#define defined_TkLiteral_NewLine
+static refalrts::FnResult func_TkLiteral_NewLine(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TkLiteral_NewLine = {
+  func_TkLiteral_NewLine, "TkLiteral_NewLine"
+};
+
+#endif /* TkLiteral_NewLine */
+
+static refalrts::FnResult func_TkLiteral_NewLine(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TkLiteral_CarriageReturn(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TkLiteral_CarriageReturn
+#define defined_TkLiteral_CarriageReturn
+static refalrts::FnResult func_TkLiteral_CarriageReturn(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TkLiteral_CarriageReturn = {
+  func_TkLiteral_CarriageReturn, "TkLiteral_CarriageReturn"
+};
+
+#endif /* TkLiteral_CarriageReturn */
+
+static refalrts::FnResult func_TkLiteral_CarriageReturn(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TkLiteral_Tab(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TkLiteral_Tab
+#define defined_TkLiteral_Tab
+static refalrts::FnResult func_TkLiteral_Tab(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TkLiteral_Tab = {
+  func_TkLiteral_Tab, "TkLiteral_Tab"
+};
+
+#endif /* TkLiteral_Tab */
+
+static refalrts::FnResult func_TkLiteral_Tab(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TkNewLine(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TkNewLine
+#define defined_TkNewLine
+static refalrts::FnResult func_TkNewLine(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TkNewLine = {
+  func_TkNewLine, "TkNewLine"
+};
+
+#endif /* TkNewLine */
+
+static refalrts::FnResult func_TkNewLine(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TkPunctuation(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TkPunctuation
+#define defined_TkPunctuation
+static refalrts::FnResult func_TkPunctuation(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TkPunctuation = {
+  func_TkPunctuation, "TkPunctuation"
+};
+
+#endif /* TkPunctuation */
+
+static refalrts::FnResult func_TkPunctuation(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TokenAccum(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TokenAccum
+#define defined_TokenAccum
+static refalrts::FnResult func_TokenAccum(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TokenAccum = {
+  func_TokenAccum, "TokenAccum"
+};
+
+#endif /* TokenAccum */
+
+static refalrts::FnResult func_TokenAccum(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TokenError(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TokenError
+#define defined_TokenError
+static refalrts::FnResult func_TokenError(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TokenError = {
+  func_TokenError, "TokenError"
+};
+
+#endif /* TokenError */
+
+static refalrts::FnResult func_TokenError(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TokenUnexpected(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TokenUnexpected
+#define defined_TokenUnexpected
+static refalrts::FnResult func_TokenUnexpected(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TokenUnexpected = {
+  func_TokenUnexpected, "TokenUnexpected"
+};
+
+#endif /* TokenUnexpected */
+
+static refalrts::FnResult func_TokenUnexpected(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult TokenUnexpectedEOF(refalrts::Iter, refalrts::Iter) {
+#ifndef defined_TokenUnexpectedEOF
+#define defined_TokenUnexpectedEOF
+static refalrts::FnResult func_TokenUnexpectedEOF(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction TokenUnexpectedEOF = {
+  func_TokenUnexpectedEOF, "TokenUnexpectedEOF"
+};
+
+#endif /* TokenUnexpectedEOF */
+
+static refalrts::FnResult func_TokenUnexpectedEOF(refalrts::Iter, refalrts::Iter) {
   refalrts::this_is_generated_function();
   return refalrts::FnResult(
     refalrts::cRecognitionImpossible | (__LINE__ << 8)
   );
 }
 
-static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_ValidDirective
+#define defined_ValidDirective
+static refalrts::FnResult func_ValidDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction ValidDirective = {
+  func_ValidDirective, "ValidDirective"
+};
 
-static refalrts::FnResult NormalizeName(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#endif /* ValidDirective */
+
+#ifndef defined_SwPunctuation
+#define defined_SwPunctuation
+static refalrts::FnResult func_SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction SwPunctuation = {
+  func_SwPunctuation, "SwPunctuation"
+};
+
+#endif /* SwPunctuation */
+
+#ifndef defined_NormalizeName
+#define defined_NormalizeName
+static refalrts::FnResult func_NormalizeName(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction NormalizeName = {
+  func_NormalizeName, "NormalizeName"
+};
+
+#endif /* NormalizeName */
+
+static refalrts::FnResult func_NormalizeName(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -2260,7 +2618,7 @@ static refalrts::FnResult NormalizeName(refalrts::Iter arg_begin, refalrts::Iter
       if( ! refalrts::alloc_open_call( n0 ) )
         return refalrts::cNoMemory;
       refalrts::Iter n1 = 0;
-      if( ! refalrts::alloc_name( n1, & NormalizeName, "NormalizeName" ) )
+      if( ! refalrts::alloc_name( n1, & NormalizeName ) )
         return refalrts::cNoMemory;
       refalrts::Iter n2 = 0;
       if( ! refalrts::alloc_char( n2, '_' ) )
@@ -2318,7 +2676,17 @@ static refalrts::FnResult NormalizeName(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_NormalizeToken
+#define defined_NormalizeToken
+static refalrts::FnResult func_NormalizeToken(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction NormalizeToken = {
+  func_NormalizeToken, "NormalizeToken"
+};
+
+#endif /* NormalizeToken */
+
+static refalrts::FnResult func_NormalizeToken(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -2358,7 +2726,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & ValidDirective, "ValidDirective" ) )
+    if( ! refalrts::alloc_name( n1, & ValidDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_call( n2 ) )
@@ -2410,7 +2778,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkEOF, "TkEOF" ) )
+    if( ! refalrts::alloc_name( n1, & TkEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -2464,7 +2832,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkChar, "TkChar" ) )
+    if( ! refalrts::alloc_name( n1, & TkChar ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -2524,19 +2892,19 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkChar, "TkChar" ) )
+    if( ! refalrts::alloc_name( n1, & TkChar ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_call( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & Chr, "Chr" ) )
+    if( ! refalrts::alloc_name( n3, & Chr ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & FastIntFromStr, "FastIntFromStr" ) )
+    if( ! refalrts::alloc_name( n5, & FastIntFromStr ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_close_call( n6 ) )
@@ -2606,7 +2974,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkChar, "TkChar" ) )
+    if( ! refalrts::alloc_name( n1, & TkChar ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\n' ) )
@@ -2663,7 +3031,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkChar, "TkChar" ) )
+    if( ! refalrts::alloc_name( n1, & TkChar ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\r' ) )
@@ -2720,7 +3088,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkChar, "TkChar" ) )
+    if( ! refalrts::alloc_name( n1, & TkChar ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\t' ) )
@@ -2780,13 +3148,13 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkName, "TkName" ) )
+    if( ! refalrts::alloc_name( n1, & TkName ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_call( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & NormalizeName, "NormalizeName" ) )
+    if( ! refalrts::alloc_name( n3, & NormalizeName ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_close_call( n4 ) )
@@ -2844,7 +3212,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkNewLine, "TkNewLine" ) )
+    if( ! refalrts::alloc_name( n1, & TkNewLine ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -2900,13 +3268,13 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkNumber, "TkNumber" ) )
+    if( ! refalrts::alloc_name( n1, & TkNumber ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_call( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & FastIntFromStr, "FastIntFromStr" ) )
+    if( ! refalrts::alloc_name( n3, & FastIntFromStr ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_close_call( n4 ) )
@@ -2974,7 +3342,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_call( n1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & SwPunctuation, "SwPunctuation" ) )
+    if( ! refalrts::alloc_name( n2, & SwPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_call( n3 ) )
@@ -3044,13 +3412,13 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkVariable, "TkVariable" ) )
+    if( ! refalrts::alloc_name( n1, & TkVariable ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_call( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & NormalizeName, "NormalizeName" ) )
+    if( ! refalrts::alloc_name( n3, & NormalizeName ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
     if( ! refalrts::alloc_close_call( n4 ) )
@@ -3113,7 +3481,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkUnexpected, "TkUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TkUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -3167,7 +3535,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkError, "TkError" ) )
+    if( ! refalrts::alloc_name( n1, & TkError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -3221,7 +3589,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkUnexpected, "TkUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TkUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -3286,7 +3654,7 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkError, "TkError" ) )
+    if( ! refalrts::alloc_name( n1, & TkError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -3362,7 +3730,17 @@ static refalrts::FnResult NormalizeToken(refalrts::Iter arg_begin, refalrts::Ite
   );
 }
 
-static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_ValidDirective
+#define defined_ValidDirective
+static refalrts::FnResult func_ValidDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction ValidDirective = {
+  func_ValidDirective, "ValidDirective"
+};
+
+#endif /* ValidDirective */
+
+static refalrts::FnResult func_ValidDirective(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -3400,10 +3778,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & Enum, "Enum" ) )
+    if( ! refalrts::alloc_name( n2, & Enum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3457,10 +3835,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & EEnum, "EEnum" ) )
+    if( ! refalrts::alloc_name( n2, & EEnum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3514,10 +3892,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & Entry, "Entry" ) )
+    if( ! refalrts::alloc_name( n2, & Entry ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3573,10 +3951,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & Extern, "Extern" ) )
+    if( ! refalrts::alloc_name( n2, & Extern ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3634,10 +4012,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & Forward, "Forward" ) )
+    if( ! refalrts::alloc_name( n2, & Forward ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3689,10 +4067,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & Swap, "Swap" ) )
+    if( ! refalrts::alloc_name( n2, & Swap ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3746,10 +4124,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & ESwap, "ESwap" ) )
+    if( ! refalrts::alloc_name( n2, & ESwap ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3803,10 +4181,10 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
-    if( ! refalrts::alloc_name( n2, & Ident, "Ident" ) )
+    if( ! refalrts::alloc_name( n2, & Ident ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
     if( ! refalrts::alloc_close_bracket( n3 ) )
@@ -3871,7 +4249,7 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkError, "TkError" ) )
+    if( ! refalrts::alloc_name( n1, & TkError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -3968,7 +4346,17 @@ static refalrts::FnResult ValidDirective(refalrts::Iter arg_begin, refalrts::Ite
   );
 }
 
-static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_SwPunctuation
+#define defined_SwPunctuation
+static refalrts::FnResult func_SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction SwPunctuation = {
+  func_SwPunctuation, "SwPunctuation"
+};
+
+#endif /* SwPunctuation */
+
+static refalrts::FnResult func_SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -3994,7 +4382,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkOpenCall, "TkOpenCall" ) )
+    if( ! refalrts::alloc_name( n0, & TkOpenCall ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4027,7 +4415,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkCloseCall, "TkCloseCall" ) )
+    if( ! refalrts::alloc_name( n0, & TkCloseCall ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4060,7 +4448,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkOpenBlock, "TkOpenBlock" ) )
+    if( ! refalrts::alloc_name( n0, & TkOpenBlock ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4093,7 +4481,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkCloseBlock, "TkCloseBlock" ) )
+    if( ! refalrts::alloc_name( n0, & TkCloseBlock ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4126,7 +4514,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkOpenBracket, "TkOpenBracket" ) )
+    if( ! refalrts::alloc_name( n0, & TkOpenBracket ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4159,7 +4547,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkCloseBracket, "TkCloseBracket" ) )
+    if( ! refalrts::alloc_name( n0, & TkCloseBracket ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4192,7 +4580,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkReplace, "TkReplace" ) )
+    if( ! refalrts::alloc_name( n0, & TkReplace ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4225,7 +4613,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkComma, "TkComma" ) )
+    if( ! refalrts::alloc_name( n0, & TkComma ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4258,7 +4646,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkSemicolon, "TkSemicolon" ) )
+    if( ! refalrts::alloc_name( n0, & TkSemicolon ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4291,7 +4679,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkOpenADT, "TkOpenADT" ) )
+    if( ! refalrts::alloc_name( n0, & TkOpenADT ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4324,7 +4712,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkCloseADT, "TkCloseADT" ) )
+    if( ! refalrts::alloc_name( n0, & TkCloseADT ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4357,7 +4745,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkIdentMarker, "TkIdentMarker" ) )
+    if( ! refalrts::alloc_name( n0, & TkIdentMarker ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4390,7 +4778,7 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
     refalrts::reset_allocator();
     refalrts::Iter res = arg_begin;
     refalrts::Iter n0 = 0;
-    if( ! refalrts::alloc_name( n0, & TkRedefinition, "TkRedefinition" ) )
+    if( ! refalrts::alloc_name( n0, & TkRedefinition ) )
       return refalrts::cNoMemory;
     res = refalrts::splice_elem( res, n0 );
     refalrts::use( res );
@@ -4404,7 +4792,17 @@ static refalrts::FnResult SwPunctuation(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult AddLineNumber(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_AddLineNumber
+#define defined_AddLineNumber
+static refalrts::FnResult func_AddLineNumber(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction AddLineNumber = {
+  func_AddLineNumber, "AddLineNumber"
+};
+
+#endif /* AddLineNumber */
+
+static refalrts::FnResult func_AddLineNumber(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -4445,7 +4843,7 @@ static refalrts::FnResult AddLineNumber(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Inc, "Inc" ) )
+    if( ! refalrts::alloc_name( n1, & Inc ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_call( n2 ) )
@@ -4529,7 +4927,17 @@ static refalrts::FnResult AddLineNumber(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult NormalizeTokens(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_NormalizeTokens
+#define defined_NormalizeTokens
+static refalrts::FnResult func_NormalizeTokens(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction NormalizeTokens = {
+  func_NormalizeTokens, "NormalizeTokens"
+};
+
+#endif /* NormalizeTokens */
+
+static refalrts::FnResult func_NormalizeTokens(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -4570,16 +4978,16 @@ static refalrts::FnResult NormalizeTokens(refalrts::Iter arg_begin, refalrts::It
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DelAccumulator, "DelAccumulator" ) )
+    if( ! refalrts::alloc_name( n1, & DelAccumulator ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_call( n2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n3 = 0;
-    if( ! refalrts::alloc_name( n3, & MapReduce, "MapReduce" ) )
+    if( ! refalrts::alloc_name( n3, & MapReduce ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & AddLineNumber, "AddLineNumber" ) )
+    if( ! refalrts::alloc_name( n4, & AddLineNumber ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_number( n5, 1UL ) )
@@ -4588,10 +4996,10 @@ static refalrts::FnResult NormalizeTokens(refalrts::Iter arg_begin, refalrts::It
     if( ! refalrts::alloc_open_call( n6 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n7 = 0;
-    if( ! refalrts::alloc_name( n7, & Map, "Map" ) )
+    if( ! refalrts::alloc_name( n7, & Map ) )
       return refalrts::cNoMemory;
     refalrts::Iter n8 = 0;
-    if( ! refalrts::alloc_name( n8, & NormalizeToken, "NormalizeToken" ) )
+    if( ! refalrts::alloc_name( n8, & NormalizeToken ) )
       return refalrts::cNoMemory;
     refalrts::Iter n9 = 0;
     if( ! refalrts::alloc_close_call( n9 ) )
@@ -4632,45 +5040,207 @@ static refalrts::FnResult NormalizeTokens(refalrts::Iter arg_begin, refalrts::It
   );
 }
 
-static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_Name
+#define defined_Name
+static refalrts::FnResult func_Name(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction Name = {
+  func_Name, "Name"
+};
 
-static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#endif /* Name */
 
-static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_Number
+#define defined_Number
+static refalrts::FnResult func_Number(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction Number = {
+  func_Number, "Number"
+};
 
-static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#endif /* Number */
 
-static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_VariableStart
+#define defined_VariableStart
+static refalrts::FnResult func_VariableStart(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction VariableStart = {
+  func_VariableStart, "VariableStart"
+};
 
-static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#endif /* VariableStart */
 
-static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_Directive
+#define defined_Directive
+static refalrts::FnResult func_Directive(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction Directive = {
+  func_Directive, "Directive"
+};
 
-static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#endif /* Directive */
 
-static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_StringLiteral_Start
+#define defined_StringLiteral_Start
+static refalrts::FnResult func_StringLiteral_Start(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction StringLiteral_Start = {
+  func_StringLiteral_Start, "StringLiteral_Start"
+};
 
-static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#endif /* StringLiteral_Start */
 
-static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_StartComment
+#define defined_StartComment
+static refalrts::FnResult func_StartComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+static refalrts::RefalFunction StartComment = {
+  func_StartComment, "StartComment"
+};
 
-static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#endif /* StartComment */
 
-static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+#ifndef defined_VariableIndex
+#define defined_VariableIndex
+static refalrts::FnResult func_VariableIndex(refalrts::Iter arg_begin, refalrts::Iter arg_end);
 
-static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+static refalrts::RefalFunction VariableIndex = {
+  func_VariableIndex, "VariableIndex"
+};
+
+#endif /* VariableIndex */
+
+#ifndef defined_StringLiteral
+#define defined_StringLiteral
+static refalrts::FnResult func_StringLiteral(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral = {
+  func_StringLiteral, "StringLiteral"
+};
+
+#endif /* StringLiteral */
+
+#ifndef defined_DirectiveTail
+#define defined_DirectiveTail
+static refalrts::FnResult func_DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction DirectiveTail = {
+  func_DirectiveTail, "DirectiveTail"
+};
+
+#endif /* DirectiveTail */
+
+#ifndef defined_StringLiteral_Escape
+#define defined_StringLiteral_Escape
+static refalrts::FnResult func_StringLiteral_Escape(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral_Escape = {
+  func_StringLiteral_Escape, "StringLiteral_Escape"
+};
+
+#endif /* StringLiteral_Escape */
+
+#ifndef defined_SL_E_C1
+#define defined_SL_E_C1
+static refalrts::FnResult func_SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction SL_E_C1 = {
+  func_SL_E_C1, "SL_E_C1"
+};
+
+#endif /* SL_E_C1 */
+
+#ifndef defined_CComment
+#define defined_CComment
+static refalrts::FnResult func_CComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CComment = {
+  func_CComment, "CComment"
+};
+
+#endif /* CComment */
+
+#ifndef defined_CppComment
+#define defined_CppComment
+static refalrts::FnResult func_CppComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CppComment = {
+  func_CppComment, "CppComment"
+};
+
+#endif /* CppComment */
+
+#ifndef defined_VariableIndexTail
+#define defined_VariableIndexTail
+static refalrts::FnResult func_VariableIndexTail(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction VariableIndexTail = {
+  func_VariableIndexTail, "VariableIndexTail"
+};
+
+#endif /* VariableIndexTail */
+
+#ifndef defined_StringLiteral_Quote
+#define defined_StringLiteral_Quote
+static refalrts::FnResult func_StringLiteral_Quote(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral_Quote = {
+  func_StringLiteral_Quote, "StringLiteral_Quote"
+};
+
+#endif /* StringLiteral_Quote */
+
+#ifndef defined_CComment_CheckNested
+#define defined_CComment_CheckNested
+static refalrts::FnResult func_CComment_CheckNested(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CComment_CheckNested = {
+  func_CComment_CheckNested, "CComment_CheckNested"
+};
+
+#endif /* CComment_CheckNested */
+
+#ifndef defined_CComment_CheckEnd
+#define defined_CComment_CheckEnd
+static refalrts::FnResult func_CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CComment_CheckEnd = {
+  func_CComment_CheckEnd, "CComment_CheckEnd"
+};
+
+#endif /* CComment_CheckEnd */
+
+#ifndef defined_StringLiteral_Escape_Code
+#define defined_StringLiteral_Escape_Code
+static refalrts::FnResult func_StringLiteral_Escape_Code(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral_Escape_Code = {
+  func_StringLiteral_Escape_Code, "StringLiteral_Escape_Code"
+};
+
+#endif /* StringLiteral_Escape_Code */
+
+#ifndef defined_SL_E_C2
+#define defined_SL_E_C2
+static refalrts::FnResult func_SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction SL_E_C2 = {
+  func_SL_E_C2, "SL_E_C2"
+};
+
+#endif /* SL_E_C2 */
+
+#ifndef defined_Root
+#define defined_Root
+static refalrts::FnResult func_Root(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Root = {
+  func_Root, "Root"
+};
+
+#endif /* Root */
+
+static refalrts::FnResult func_Root(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -4711,7 +5281,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n1, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -4776,7 +5346,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n1, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -4841,7 +5411,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n1, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -4914,7 +5484,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '<' ) )
@@ -4926,7 +5496,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5005,7 +5575,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '>' ) )
@@ -5017,7 +5587,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5096,7 +5666,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '(' ) )
@@ -5108,7 +5678,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5187,7 +5757,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, ')' ) )
@@ -5199,7 +5769,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5278,7 +5848,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '{' ) )
@@ -5290,7 +5860,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5369,7 +5939,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '}' ) )
@@ -5381,7 +5951,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5460,7 +6030,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '[' ) )
@@ -5472,7 +6042,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5551,7 +6121,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, ']' ) )
@@ -5563,7 +6133,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5642,7 +6212,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '=' ) )
@@ -5654,7 +6224,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5733,7 +6303,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, ';' ) )
@@ -5745,7 +6315,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5824,7 +6394,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, ',' ) )
@@ -5836,7 +6406,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -5915,7 +6485,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '#' ) )
@@ -5927,7 +6497,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -6006,7 +6576,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkPunctuation, "TkPunctuation" ) )
+    if( ! refalrts::alloc_name( n1, & TkPunctuation ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '^' ) )
@@ -6018,7 +6588,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -6094,7 +6664,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6169,7 +6739,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6244,7 +6814,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6319,7 +6889,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6394,7 +6964,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6469,7 +7039,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6544,7 +7114,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6619,7 +7189,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6694,7 +7264,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6769,7 +7339,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6844,7 +7414,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6919,7 +7489,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -6994,7 +7564,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7069,7 +7639,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7144,7 +7714,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7219,7 +7789,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7294,7 +7864,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7369,7 +7939,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7444,7 +8014,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7519,7 +8089,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7594,7 +8164,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7669,7 +8239,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7744,7 +8314,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7819,7 +8389,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7894,7 +8464,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -7969,7 +8539,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8044,7 +8614,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableStart, "VariableStart" ) )
+    if( ! refalrts::alloc_name( n1, & VariableStart ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8119,7 +8689,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableStart, "VariableStart" ) )
+    if( ! refalrts::alloc_name( n1, & VariableStart ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8194,7 +8764,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableStart, "VariableStart" ) )
+    if( ! refalrts::alloc_name( n1, & VariableStart ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8269,7 +8839,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8344,7 +8914,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8419,7 +8989,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8494,7 +9064,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8569,7 +9139,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8644,7 +9214,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8719,7 +9289,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8794,7 +9364,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8869,7 +9439,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -8944,7 +9514,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9014,7 +9584,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Directive, "Directive" ) )
+    if( ! refalrts::alloc_name( n1, & Directive ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9079,7 +9649,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StringLiteral_Start, "StringLiteral_Start" ) )
+    if( ! refalrts::alloc_name( n1, & StringLiteral_Start ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9149,7 +9719,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StartComment, "StartComment" ) )
+    if( ! refalrts::alloc_name( n1, & StartComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9227,7 +9797,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkNewLine, "TkNewLine" ) )
+    if( ! refalrts::alloc_name( n1, & TkNewLine ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\n' ) )
@@ -9239,7 +9809,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -9307,7 +9877,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkEOF, "TkEOF" ) )
+    if( ! refalrts::alloc_name( n1, & TkEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -9371,7 +9941,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkUnexpected, "TkUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TkUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -9380,7 +9950,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -9456,7 +10026,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -9465,7 +10035,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -9535,7 +10105,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -9544,7 +10114,7 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -9569,7 +10139,17 @@ static refalrts::FnResult Root(refalrts::Iter arg_begin, refalrts::Iter arg_end)
   );
 }
 
-static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_Name
+#define defined_Name
+static refalrts::FnResult func_Name(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Name = {
+  func_Name, "Name"
+};
+
+#endif /* Name */
+
+static refalrts::FnResult func_Name(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -9615,7 +10195,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9690,7 +10270,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9765,7 +10345,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9840,7 +10420,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9915,7 +10495,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -9990,7 +10570,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10065,7 +10645,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10140,7 +10720,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10215,7 +10795,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10290,7 +10870,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10365,7 +10945,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10440,7 +11020,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10515,7 +11095,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10590,7 +11170,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10665,7 +11245,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10740,7 +11320,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10815,7 +11395,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10890,7 +11470,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -10965,7 +11545,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11040,7 +11620,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11115,7 +11695,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11190,7 +11770,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11265,7 +11845,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11340,7 +11920,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11415,7 +11995,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11490,7 +12070,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11565,7 +12145,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11640,7 +12220,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11715,7 +12295,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11790,7 +12370,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11865,7 +12445,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -11940,7 +12520,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12015,7 +12595,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12090,7 +12670,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12165,7 +12745,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12240,7 +12820,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12315,7 +12895,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12390,7 +12970,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12465,7 +13045,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12540,7 +13120,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12615,7 +13195,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12690,7 +13270,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12765,7 +13345,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12840,7 +13420,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12915,7 +13495,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -12990,7 +13570,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13065,7 +13645,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13140,7 +13720,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13215,7 +13795,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13290,7 +13870,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13365,7 +13945,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13440,7 +14020,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13515,7 +14095,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13590,7 +14170,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13665,7 +14245,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13740,7 +14320,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13815,7 +14395,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13890,7 +14470,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -13965,7 +14545,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -14040,7 +14620,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -14115,7 +14695,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -14190,7 +14770,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -14265,7 +14845,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -14340,7 +14920,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Name, "Name" ) )
+    if( ! refalrts::alloc_name( n1, & Name ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -14415,7 +14995,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkName, "TkName" ) )
+    if( ! refalrts::alloc_name( n1, & TkName ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -14424,7 +15004,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -14499,7 +15079,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -14508,7 +15088,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -14578,7 +15158,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -14587,7 +15167,7 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -14612,7 +15192,17 @@ static refalrts::FnResult Name(refalrts::Iter arg_begin, refalrts::Iter arg_end)
   );
 }
 
-static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_VariableStart
+#define defined_VariableStart
+static refalrts::FnResult func_VariableStart(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction VariableStart = {
+  func_VariableStart, "VariableStart"
+};
+
+#endif /* VariableStart */
+
+static refalrts::FnResult func_VariableStart(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -14658,7 +15248,7 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndex, "VariableIndex" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndex ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -14741,7 +15331,7 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'E' ) )
@@ -14786,7 +15376,7 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n15 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n16 = 0;
-    if( ! refalrts::alloc_name( n16, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n16, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n17 = 0;
     if( ! refalrts::alloc_open_bracket( n17 ) )
@@ -14872,7 +15462,7 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -14881,7 +15471,7 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -14951,7 +15541,7 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -14960,7 +15550,7 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -14985,7 +15575,17 @@ static refalrts::FnResult VariableStart(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_Number
+#define defined_Number
+static refalrts::FnResult func_Number(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Number = {
+  func_Number, "Number"
+};
+
+#endif /* Number */
+
+static refalrts::FnResult func_Number(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -15031,7 +15631,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15106,7 +15706,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15181,7 +15781,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15256,7 +15856,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15331,7 +15931,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15406,7 +16006,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15481,7 +16081,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15556,7 +16156,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15631,7 +16231,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15706,7 +16306,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Number, "Number" ) )
+    if( ! refalrts::alloc_name( n1, & Number ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -15781,7 +16381,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkNumber, "TkNumber" ) )
+    if( ! refalrts::alloc_name( n1, & TkNumber ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -15790,7 +16390,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -15865,7 +16465,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -15874,7 +16474,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -15944,7 +16544,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -15953,7 +16553,7 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -15978,7 +16578,17 @@ static refalrts::FnResult Number(refalrts::Iter arg_begin, refalrts::Iter arg_en
   );
 }
 
-static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_Directive
+#define defined_Directive
+static refalrts::FnResult func_Directive(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction Directive = {
+  func_Directive, "Directive"
+};
+
+#endif /* Directive */
+
+static refalrts::FnResult func_Directive(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -16024,7 +16634,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16099,7 +16709,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16174,7 +16784,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16249,7 +16859,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16324,7 +16934,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16399,7 +17009,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16474,7 +17084,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16549,7 +17159,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16624,7 +17234,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16699,7 +17309,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16774,7 +17384,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16849,7 +17459,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16924,7 +17534,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -16999,7 +17609,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17074,7 +17684,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17149,7 +17759,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17224,7 +17834,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17299,7 +17909,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17374,7 +17984,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17449,7 +18059,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17524,7 +18134,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17599,7 +18209,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17674,7 +18284,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17749,7 +18359,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17824,7 +18434,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17899,7 +18509,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -17993,7 +18603,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'E' ) )
@@ -18071,7 +18681,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n26 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n27 = 0;
-    if( ! refalrts::alloc_name( n27, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n27, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n28 = 0;
     if( ! refalrts::alloc_open_bracket( n28 ) )
@@ -18168,7 +18778,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -18177,7 +18787,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -18247,7 +18857,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -18256,7 +18866,7 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -18281,7 +18891,17 @@ static refalrts::FnResult Directive(refalrts::Iter arg_begin, refalrts::Iter arg
   );
 }
 
-static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_StringLiteral_Start
+#define defined_StringLiteral_Start
+static refalrts::FnResult func_StringLiteral_Start(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral_Start = {
+  func_StringLiteral_Start, "StringLiteral_Start"
+};
+
+#endif /* StringLiteral_Start */
+
+static refalrts::FnResult func_StringLiteral_Start(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -18330,7 +18950,7 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Char, "TkLiteral_Char" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Char ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\'' ) )
@@ -18342,7 +18962,7 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -18415,7 +19035,7 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n1, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -18486,7 +19106,7 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -18495,7 +19115,7 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -18565,7 +19185,7 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -18574,7 +19194,7 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -18599,7 +19219,17 @@ static refalrts::FnResult StringLiteral_Start(refalrts::Iter arg_begin, refalrts
   );
 }
 
-static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_StartComment
+#define defined_StartComment
+static refalrts::FnResult func_StartComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StartComment = {
+  func_StartComment, "StartComment"
+};
+
+#endif /* StartComment */
+
+static refalrts::FnResult func_StartComment(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -18640,7 +19270,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CComment, "CComment" ) )
+    if( ! refalrts::alloc_name( n1, & CComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -18705,7 +19335,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CppComment, "CppComment" ) )
+    if( ! refalrts::alloc_name( n1, & CppComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -18775,7 +19405,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkUnexpected, "TkUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TkUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -18784,7 +19414,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -18859,7 +19489,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -18868,7 +19498,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -18938,7 +19568,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -18947,7 +19577,7 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -18972,7 +19602,17 @@ static refalrts::FnResult StartComment(refalrts::Iter arg_begin, refalrts::Iter 
   );
 }
 
-static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_VariableIndex
+#define defined_VariableIndex
+static refalrts::FnResult func_VariableIndex(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction VariableIndex = {
+  func_VariableIndex, "VariableIndex"
+};
+
+#endif /* VariableIndex */
+
+static refalrts::FnResult func_VariableIndex(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -19018,7 +19658,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19093,7 +19733,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19168,7 +19808,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19243,7 +19883,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19318,7 +19958,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19393,7 +20033,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19468,7 +20108,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19543,7 +20183,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19618,7 +20258,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19693,7 +20333,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19768,7 +20408,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19843,7 +20483,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19918,7 +20558,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -19993,7 +20633,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20068,7 +20708,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20143,7 +20783,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20218,7 +20858,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20293,7 +20933,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20368,7 +21008,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20443,7 +21083,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20518,7 +21158,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20593,7 +21233,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20668,7 +21308,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20743,7 +21383,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20818,7 +21458,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20893,7 +21533,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -20968,7 +21608,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21043,7 +21683,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21118,7 +21758,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21193,7 +21833,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21268,7 +21908,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21343,7 +21983,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21418,7 +22058,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21493,7 +22133,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21568,7 +22208,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21643,7 +22283,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21718,7 +22358,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21793,7 +22433,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21868,7 +22508,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -21943,7 +22583,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22018,7 +22658,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22093,7 +22733,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22168,7 +22808,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22243,7 +22883,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22318,7 +22958,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22393,7 +23033,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22468,7 +23108,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22543,7 +23183,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22618,7 +23258,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22693,7 +23333,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22768,7 +23408,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22843,7 +23483,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22918,7 +23558,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -22993,7 +23633,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23068,7 +23708,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23143,7 +23783,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23218,7 +23858,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23293,7 +23933,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23368,7 +24008,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23443,7 +24083,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23518,7 +24158,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23593,7 +24233,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23668,7 +24308,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23743,7 +24383,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -23836,7 +24476,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'E' ) )
@@ -23911,7 +24551,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n25 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n26 = 0;
-    if( ! refalrts::alloc_name( n26, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n26, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n27 = 0;
     if( ! refalrts::alloc_open_bracket( n27 ) )
@@ -24007,7 +24647,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -24016,7 +24656,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -24086,7 +24726,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -24095,7 +24735,7 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -24120,7 +24760,17 @@ static refalrts::FnResult VariableIndex(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_DirectiveTail
+#define defined_DirectiveTail
+static refalrts::FnResult func_DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction DirectiveTail = {
+  func_DirectiveTail, "DirectiveTail"
+};
+
+#endif /* DirectiveTail */
+
+static refalrts::FnResult func_DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -24166,7 +24816,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24241,7 +24891,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24316,7 +24966,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24391,7 +25041,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24466,7 +25116,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24541,7 +25191,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24616,7 +25266,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24691,7 +25341,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24766,7 +25416,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24841,7 +25491,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24916,7 +25566,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -24991,7 +25641,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25066,7 +25716,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25141,7 +25791,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25216,7 +25866,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25291,7 +25941,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25366,7 +26016,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25441,7 +26091,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25516,7 +26166,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25591,7 +26241,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25666,7 +26316,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25741,7 +26391,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25816,7 +26466,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25891,7 +26541,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -25966,7 +26616,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -26041,7 +26691,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & DirectiveTail, "DirectiveTail" ) )
+    if( ! refalrts::alloc_name( n1, & DirectiveTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -26116,7 +26766,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkDirective, "TkDirective" ) )
+    if( ! refalrts::alloc_name( n1, & TkDirective ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -26125,7 +26775,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -26200,7 +26850,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -26209,7 +26859,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -26279,7 +26929,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -26288,7 +26938,7 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -26313,7 +26963,17 @@ static refalrts::FnResult DirectiveTail(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_StringLiteral
+#define defined_StringLiteral
+static refalrts::FnResult func_StringLiteral(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral = {
+  func_StringLiteral, "StringLiteral"
+};
+
+#endif /* StringLiteral */
+
+static refalrts::FnResult func_StringLiteral(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -26354,7 +27014,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StringLiteral_Escape, "StringLiteral_Escape" ) )
+    if( ! refalrts::alloc_name( n1, & StringLiteral_Escape ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -26419,7 +27079,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StringLiteral_Quote, "StringLiteral_Quote" ) )
+    if( ! refalrts::alloc_name( n1, & StringLiteral_Quote ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -26501,7 +27161,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -26552,7 +27212,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n17 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n18 = 0;
-    if( ! refalrts::alloc_name( n18, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n18, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n19 = 0;
     if( ! refalrts::alloc_open_bracket( n19 ) )
@@ -26660,7 +27320,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -26851,7 +27511,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Char, "TkLiteral_Char" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Char ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -26860,7 +27520,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n4, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -26936,7 +27596,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -26945,7 +27605,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -27015,7 +27675,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -27024,7 +27684,7 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -27049,7 +27709,17 @@ static refalrts::FnResult StringLiteral(refalrts::Iter arg_begin, refalrts::Iter
   );
 }
 
-static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_CComment
+#define defined_CComment
+static refalrts::FnResult func_CComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CComment = {
+  func_CComment, "CComment"
+};
+
+#endif /* CComment */
+
+static refalrts::FnResult func_CComment(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -27090,7 +27760,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CComment_CheckNested, "CComment_CheckNested" ) )
+    if( ! refalrts::alloc_name( n1, & CComment_CheckNested ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -27155,7 +27825,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CComment_CheckEnd, "CComment_CheckEnd" ) )
+    if( ! refalrts::alloc_name( n1, & CComment_CheckEnd ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -27228,7 +27898,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkNewLine, "TkNewLine" ) )
+    if( ! refalrts::alloc_name( n1, & TkNewLine ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\n' ) )
@@ -27240,7 +27910,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & CComment, "CComment" ) )
+    if( ! refalrts::alloc_name( n5, & CComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -27312,7 +27982,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CComment, "CComment" ) )
+    if( ! refalrts::alloc_name( n1, & CComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -27402,7 +28072,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -27589,7 +28259,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -27598,7 +28268,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -27668,7 +28338,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -27677,7 +28347,7 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -27702,7 +28372,17 @@ static refalrts::FnResult CComment(refalrts::Iter arg_begin, refalrts::Iter arg_
   );
 }
 
-static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_CppComment
+#define defined_CppComment
+static refalrts::FnResult func_CppComment(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CppComment = {
+  func_CppComment, "CppComment"
+};
+
+#endif /* CppComment */
+
+static refalrts::FnResult func_CppComment(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -27751,7 +28431,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkNewLine, "TkNewLine" ) )
+    if( ! refalrts::alloc_name( n1, & TkNewLine ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\n' ) )
@@ -27763,7 +28443,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n5, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -27831,7 +28511,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkEOF, "TkEOF" ) )
+    if( ! refalrts::alloc_name( n1, & TkEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -27887,7 +28567,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CppComment, "CppComment" ) )
+    if( ! refalrts::alloc_name( n1, & CppComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -27957,7 +28637,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -27966,7 +28646,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -28036,7 +28716,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -28045,7 +28725,7 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -28070,7 +28750,17 @@ static refalrts::FnResult CppComment(refalrts::Iter arg_begin, refalrts::Iter ar
   );
 }
 
-static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_VariableIndexTail
+#define defined_VariableIndexTail
+static refalrts::FnResult func_VariableIndexTail(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction VariableIndexTail = {
+  func_VariableIndexTail, "VariableIndexTail"
+};
+
+#endif /* VariableIndexTail */
+
+static refalrts::FnResult func_VariableIndexTail(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -28116,7 +28806,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28191,7 +28881,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28266,7 +28956,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28341,7 +29031,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28416,7 +29106,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28491,7 +29181,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28566,7 +29256,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28641,7 +29331,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28716,7 +29406,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28791,7 +29481,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28866,7 +29556,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -28941,7 +29631,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29016,7 +29706,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29091,7 +29781,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29166,7 +29856,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29241,7 +29931,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29316,7 +30006,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29391,7 +30081,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29466,7 +30156,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29541,7 +30231,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29616,7 +30306,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29691,7 +30381,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29766,7 +30456,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29841,7 +30531,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29916,7 +30606,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -29991,7 +30681,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30066,7 +30756,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30141,7 +30831,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30216,7 +30906,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30291,7 +30981,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30366,7 +31056,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30441,7 +31131,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30516,7 +31206,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30591,7 +31281,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30666,7 +31356,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30741,7 +31431,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30816,7 +31506,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30891,7 +31581,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -30966,7 +31656,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31041,7 +31731,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31116,7 +31806,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31191,7 +31881,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31266,7 +31956,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31341,7 +32031,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31416,7 +32106,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31491,7 +32181,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31566,7 +32256,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31641,7 +32331,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31716,7 +32406,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31791,7 +32481,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31866,7 +32556,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -31941,7 +32631,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32016,7 +32706,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32091,7 +32781,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32166,7 +32856,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32241,7 +32931,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32316,7 +33006,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32391,7 +33081,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32466,7 +33156,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32541,7 +33231,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32616,7 +33306,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32691,7 +33381,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32766,7 +33456,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32841,7 +33531,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & VariableIndexTail, "VariableIndexTail" ) )
+    if( ! refalrts::alloc_name( n1, & VariableIndexTail ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -32916,7 +33606,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkVariable, "TkVariable" ) )
+    if( ! refalrts::alloc_name( n1, & TkVariable ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -32925,7 +33615,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -33000,7 +33690,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -33009,7 +33699,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -33079,7 +33769,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -33088,7 +33778,7 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -33113,7 +33803,17 @@ static refalrts::FnResult VariableIndexTail(refalrts::Iter arg_begin, refalrts::
   );
 }
 
-static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_StringLiteral_Escape
+#define defined_StringLiteral_Escape
+static refalrts::FnResult func_StringLiteral_Escape(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral_Escape = {
+  func_StringLiteral_Escape, "StringLiteral_Escape"
+};
+
+#endif /* StringLiteral_Escape */
+
+static refalrts::FnResult func_StringLiteral_Escape(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -33162,7 +33862,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_NewLine, "TkLiteral_NewLine" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_NewLine ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'n' ) )
@@ -33174,7 +33874,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -33253,7 +33953,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_CarriageReturn, "TkLiteral_CarriageReturn" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_CarriageReturn ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'r' ) )
@@ -33265,7 +33965,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -33344,7 +34044,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Tab, "TkLiteral_Tab" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Tab ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 't' ) )
@@ -33356,7 +34056,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -33435,7 +34135,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Char, "TkLiteral_Char" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Char ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\\' ) )
@@ -33447,7 +34147,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -33526,7 +34226,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Char, "TkLiteral_Char" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Char ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\'' ) )
@@ -33538,7 +34238,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -33609,7 +34309,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & StringLiteral_Escape_Code, "StringLiteral_Escape_Code" ) )
+    if( ! refalrts::alloc_name( n1, & StringLiteral_Escape_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -33691,7 +34391,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -33742,7 +34442,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n17 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n18 = 0;
-    if( ! refalrts::alloc_name( n18, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n18, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n19 = 0;
     if( ! refalrts::alloc_open_bracket( n19 ) )
@@ -33852,7 +34552,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'U' ) )
@@ -33939,7 +34639,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n29 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n30 = 0;
-    if( ! refalrts::alloc_name( n30, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n30, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n31 = 0;
     if( ! refalrts::alloc_open_bracket( n31 ) )
@@ -34039,7 +34739,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -34048,7 +34748,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -34118,7 +34818,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -34127,7 +34827,7 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -34152,7 +34852,17 @@ static refalrts::FnResult StringLiteral_Escape(refalrts::Iter arg_begin, refalrt
   );
 }
 
-static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_StringLiteral_Quote
+#define defined_StringLiteral_Quote
+static refalrts::FnResult func_StringLiteral_Quote(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral_Quote = {
+  func_StringLiteral_Quote, "StringLiteral_Quote"
+};
+
+#endif /* StringLiteral_Quote */
+
+static refalrts::FnResult func_StringLiteral_Quote(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -34201,7 +34911,7 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Char, "TkLiteral_Char" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Char ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '\'' ) )
@@ -34213,7 +34923,7 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -34286,7 +34996,7 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n1, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -34357,7 +35067,7 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -34366,7 +35076,7 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -34436,7 +35146,7 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -34445,7 +35155,7 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -34470,7 +35180,17 @@ static refalrts::FnResult StringLiteral_Quote(refalrts::Iter arg_begin, refalrts
   );
 }
 
-static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_CComment_CheckNested
+#define defined_CComment_CheckNested
+static refalrts::FnResult func_CComment_CheckNested(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CComment_CheckNested = {
+  func_CComment_CheckNested, "CComment_CheckNested"
+};
+
+#endif /* CComment_CheckNested */
+
+static refalrts::FnResult func_CComment_CheckNested(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -34541,7 +35261,7 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'N' ) )
@@ -34631,7 +35351,7 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n30 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n31 = 0;
-    if( ! refalrts::alloc_name( n31, & CComment, "CComment" ) )
+    if( ! refalrts::alloc_name( n31, & CComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n32 = 0;
     if( ! refalrts::alloc_open_bracket( n32 ) )
@@ -34729,7 +35449,7 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CComment, "CComment" ) )
+    if( ! refalrts::alloc_name( n1, & CComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -34800,7 +35520,7 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -34809,7 +35529,7 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -34879,7 +35599,7 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -34888,7 +35608,7 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -34913,7 +35633,17 @@ static refalrts::FnResult CComment_CheckNested(refalrts::Iter arg_begin, refalrt
   );
 }
 
-static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_CComment_CheckEnd
+#define defined_CComment_CheckEnd
+static refalrts::FnResult func_CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction CComment_CheckEnd = {
+  func_CComment_CheckEnd, "CComment_CheckEnd"
+};
+
+#endif /* CComment_CheckEnd */
+
+static refalrts::FnResult func_CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -34954,7 +35684,7 @@ static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n1, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35021,7 +35751,7 @@ static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & CComment, "CComment" ) )
+    if( ! refalrts::alloc_name( n1, & CComment ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35092,7 +35822,7 @@ static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -35101,7 +35831,7 @@ static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -35171,7 +35901,7 @@ static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -35180,7 +35910,7 @@ static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -35205,7 +35935,17 @@ static refalrts::FnResult CComment_CheckEnd(refalrts::Iter arg_begin, refalrts::
   );
 }
 
-static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_StringLiteral_Escape_Code
+#define defined_StringLiteral_Escape_Code
+static refalrts::FnResult func_StringLiteral_Escape_Code(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction StringLiteral_Escape_Code = {
+  func_StringLiteral_Escape_Code, "StringLiteral_Escape_Code"
+};
+
+#endif /* StringLiteral_Escape_Code */
+
+static refalrts::FnResult func_StringLiteral_Escape_Code(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -35251,7 +35991,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35326,7 +36066,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35401,7 +36141,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35476,7 +36216,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35551,7 +36291,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35626,7 +36366,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35701,7 +36441,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35776,7 +36516,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35851,7 +36591,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -35926,7 +36666,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C1, "SL_E_C1" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C1 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36019,7 +36759,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenError, "TokenError" ) )
+    if( ! refalrts::alloc_name( n1, & TokenError ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, 'E' ) )
@@ -36094,7 +36834,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n25 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n26 = 0;
-    if( ! refalrts::alloc_name( n26, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n26, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n27 = 0;
     if( ! refalrts::alloc_open_bracket( n27 ) )
@@ -36190,7 +36930,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -36199,7 +36939,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -36269,7 +37009,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -36278,7 +37018,7 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -36303,7 +37043,17 @@ static refalrts::FnResult StringLiteral_Escape_Code(refalrts::Iter arg_begin, re
   );
 }
 
-static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_SL_E_C1
+#define defined_SL_E_C1
+static refalrts::FnResult func_SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction SL_E_C1 = {
+  func_SL_E_C1, "SL_E_C1"
+};
+
+#endif /* SL_E_C1 */
+
+static refalrts::FnResult func_SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -36349,7 +37099,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36424,7 +37174,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36499,7 +37249,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36574,7 +37324,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36649,7 +37399,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36724,7 +37474,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36799,7 +37549,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36874,7 +37624,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -36949,7 +37699,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -37024,7 +37774,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & SL_E_C2, "SL_E_C2" ) )
+    if( ! refalrts::alloc_name( n1, & SL_E_C2 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_open_bracket( n2 ) )
@@ -37099,7 +37849,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -37108,7 +37858,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n4, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -37183,7 +37933,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -37192,7 +37942,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -37262,7 +38012,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -37271,7 +38021,7 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
@@ -37296,7 +38046,17 @@ static refalrts::FnResult SL_E_C1(refalrts::Iter arg_begin, refalrts::Iter arg_e
   );
 }
 
-static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
+#ifndef defined_SL_E_C2
+#define defined_SL_E_C2
+static refalrts::FnResult func_SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_end);
+
+static refalrts::RefalFunction SL_E_C2 = {
+  func_SL_E_C2, "SL_E_C2"
+};
+
+#endif /* SL_E_C2 */
+
+static refalrts::FnResult func_SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_end) {
   refalrts::this_is_generated_function();
   do {
     refalrts::Iter bb_0 = arg_begin;
@@ -37345,7 +38105,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '0' ) )
@@ -37357,7 +38117,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -37436,7 +38196,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '1' ) )
@@ -37448,7 +38208,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -37527,7 +38287,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '2' ) )
@@ -37539,7 +38299,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -37618,7 +38378,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '3' ) )
@@ -37630,7 +38390,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -37709,7 +38469,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '4' ) )
@@ -37721,7 +38481,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -37800,7 +38560,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '5' ) )
@@ -37812,7 +38572,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -37891,7 +38651,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '6' ) )
@@ -37903,7 +38663,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -37982,7 +38742,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '7' ) )
@@ -37994,7 +38754,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -38073,7 +38833,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '8' ) )
@@ -38085,7 +38845,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -38164,7 +38924,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_char( n2, '9' ) )
@@ -38176,7 +38936,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n4 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
-    if( ! refalrts::alloc_name( n5, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n5, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n6 = 0;
     if( ! refalrts::alloc_open_bracket( n6 ) )
@@ -38252,7 +39012,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TkLiteral_Code, "TkLiteral_Code" ) )
+    if( ! refalrts::alloc_name( n1, & TkLiteral_Code ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -38261,7 +39021,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & StringLiteral, "StringLiteral" ) )
+    if( ! refalrts::alloc_name( n4, & StringLiteral ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -38336,7 +39096,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenUnexpected, "TokenUnexpected" ) )
+    if( ! refalrts::alloc_name( n1, & TokenUnexpected ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -38345,7 +39105,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_call( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & Root, "Root" ) )
+    if( ! refalrts::alloc_name( n4, & Root ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_open_bracket( n5 ) )
@@ -38415,7 +39175,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n0 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n1 = 0;
-    if( ! refalrts::alloc_name( n1, & TokenAccum, "TokenAccum" ) )
+    if( ! refalrts::alloc_name( n1, & TokenAccum ) )
       return refalrts::cNoMemory;
     refalrts::Iter n2 = 0;
     if( ! refalrts::alloc_close_bracket( n2 ) )
@@ -38424,7 +39184,7 @@ static refalrts::FnResult SL_E_C2(refalrts::Iter arg_begin, refalrts::Iter arg_e
     if( ! refalrts::alloc_open_bracket( n3 ) )
       return refalrts::cNoMemory;
     refalrts::Iter n4 = 0;
-    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF, "TokenUnexpectedEOF" ) )
+    if( ! refalrts::alloc_name( n4, & TokenUnexpectedEOF ) )
       return refalrts::cNoMemory;
     refalrts::Iter n5 = 0;
     if( ! refalrts::alloc_close_bracket( n5 ) )
