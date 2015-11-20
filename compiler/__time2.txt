@@ -1,40 +1,160 @@
 
-Total program time: 57.123 seconds.
-Pattern match time: 17.491 seconds (43.7%, 30.6%), p/r = 0.78.
-Building result time: 22.553 seconds (56.3%, 39.5%), r/p = 1.29.
-Total refal time: 40.044 seconds (70.1%).
-Builtin time: 17.079 seconds (29.9%).
+Total program time: 60.607 seconds.
+Pattern match time: 16.419 seconds (41.1%, 27.1%), p/r = 0.70.
+Building result time: 23.575 seconds (58.9%, 38.9%), r/p = 1.44.
+Total refal time: 39.994 seconds (66.0%).
+Builtin time: 20.613 seconds (34.0%).
 Step count 2038323
 Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
 
-Total program time: 60.887 seconds.
-Pattern match time: 18.546 seconds (46.0%, 30.5%), p/r = 0.85.
-Building result time: 21.776 seconds (54.0%, 35.8%), r/p = 1.17.
-Total refal time: 40.322 seconds (66.2%).
-Builtin time: 20.565 seconds (33.8%).
+Total program time: 57.513 seconds.
+Pattern match time: 17.353 seconds (44.5%, 30.2%), p/r = 0.80.
+Building result time: 21.657 seconds (55.5%, 37.7%), r/p = 1.25.
+Total refal time: 39.010 seconds (67.8%).
+Builtin time: 18.503 seconds (32.2%).
 Step count 2038323
 Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
 
-Total program time: 57.853 seconds.
-Pattern match time: 16.485 seconds (41.3%, 28.5%), p/r = 0.70.
-Building result time: 23.472 seconds (58.7%, 40.6%), r/p = 1.42.
-Total refal time: 39.957 seconds (69.1%).
-Builtin time: 17.896 seconds (30.9%).
+Total program time: 59.195 seconds.
+Pattern match time: 17.060 seconds (44.4%, 28.8%), p/r = 0.80.
+Building result time: 21.346 seconds (55.6%, 36.1%), r/p = 1.25.
+Total refal time: 38.406 seconds (64.9%).
+Builtin time: 20.789 seconds (35.1%).
 Step count 2038323
 Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
 
-Total program time: 68.969 seconds.
-Pattern match time: 17.056 seconds (43.3%, 24.7%), p/r = 0.76.
-Building result time: 22.304 seconds (56.7%, 32.3%), r/p = 1.31.
-Total refal time: 39.360 seconds (57.1%).
-Builtin time: 29.609 seconds (42.9%).
+Total program time: 57.243 seconds.
+Pattern match time: 18.322 seconds (45.9%, 32.0%), p/r = 0.85.
+Building result time: 21.603 seconds (54.1%, 37.7%), r/p = 1.18.
+Total refal time: 39.925 seconds (69.7%).
+Builtin time: 17.318 seconds (30.3%).
 Step count 2038323
 Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
 
-Total program time: 58.985 seconds.
-Pattern match time: 18.010 seconds (45.6%, 30.5%), p/r = 0.84.
-Building result time: 21.507 seconds (54.4%, 36.5%), r/p = 1.19.
-Total refal time: 39.517 seconds (67.0%).
-Builtin time: 19.468 seconds (33.0%).
+Total program time: 59.265 seconds.
+Pattern match time: 17.201 seconds (43.5%, 29.0%), p/r = 0.77.
+Building result time: 22.337 seconds (56.5%, 37.7%), r/p = 1.30.
+Total refal time: 39.538 seconds (66.7%).
+Builtin time: 19.727 seconds (33.3%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 57.092 seconds.
+Pattern match time: 18.143 seconds (45.7%, 31.8%), p/r = 0.84.
+Building result time: 21.529 seconds (54.3%, 37.7%), r/p = 1.19.
+Total refal time: 39.672 seconds (69.5%).
+Builtin time: 17.420 seconds (30.5%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 59.225 seconds.
+Pattern match time: 17.173 seconds (43.8%, 29.0%), p/r = 0.78.
+Building result time: 22.044 seconds (56.2%, 37.2%), r/p = 1.28.
+Total refal time: 39.217 seconds (66.2%).
+Builtin time: 20.008 seconds (33.8%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 54.689 seconds.
+Pattern match time: 17.594 seconds (43.6%, 32.2%), p/r = 0.77.
+Building result time: 22.739 seconds (56.4%, 41.6%), r/p = 1.29.
+Total refal time: 40.333 seconds (73.7%).
+Builtin time: 14.356 seconds (26.3%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 59.055 seconds.
+Pattern match time: 16.993 seconds (43.5%, 28.8%), p/r = 0.77.
+Building result time: 22.046 seconds (56.5%, 37.3%), r/p = 1.30.
+Total refal time: 39.039 seconds (66.1%).
+Builtin time: 20.016 seconds (33.9%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 54.539 seconds.
+Pattern match time: 17.745 seconds (44.9%, 32.5%), p/r = 0.82.
+Building result time: 21.749 seconds (55.1%, 39.9%), r/p = 1.23.
+Total refal time: 39.494 seconds (72.4%).
+Builtin time: 15.045 seconds (27.6%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 59.375 seconds.
+Pattern match time: 16.883 seconds (42.7%, 28.4%), p/r = 0.75.
+Building result time: 22.641 seconds (57.3%, 38.1%), r/p = 1.34.
+Total refal time: 39.524 seconds (66.6%).
+Builtin time: 19.851 seconds (33.4%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 54.509 seconds.
+Pattern match time: 17.581 seconds (45.0%, 32.3%), p/r = 0.82.
+Building result time: 21.503 seconds (55.0%, 39.4%), r/p = 1.22.
+Total refal time: 39.084 seconds (71.7%).
+Builtin time: 15.425 seconds (28.3%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 58.555 seconds.
+Pattern match time: 17.233 seconds (43.7%, 29.4%), p/r = 0.78.
+Building result time: 22.163 seconds (56.3%, 37.8%), r/p = 1.29.
+Total refal time: 39.396 seconds (67.3%).
+Builtin time: 19.159 seconds (32.7%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 54.568 seconds.
+Pattern match time: 17.587 seconds (44.3%, 32.2%), p/r = 0.79.
+Building result time: 22.128 seconds (55.7%, 40.6%), r/p = 1.26.
+Total refal time: 39.715 seconds (72.8%).
+Builtin time: 14.853 seconds (27.2%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 59.085 seconds.
+Pattern match time: 17.724 seconds (44.8%, 30.0%), p/r = 0.81.
+Building result time: 21.858 seconds (55.2%, 37.0%), r/p = 1.23.
+Total refal time: 39.582 seconds (67.0%).
+Builtin time: 19.503 seconds (33.0%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 54.428 seconds.
+Pattern match time: 17.373 seconds (44.5%, 31.9%), p/r = 0.80.
+Building result time: 21.661 seconds (55.5%, 39.8%), r/p = 1.25.
+Total refal time: 39.034 seconds (71.7%).
+Builtin time: 15.394 seconds (28.3%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 59.205 seconds.
+Pattern match time: 17.082 seconds (44.3%, 28.9%), p/r = 0.80.
+Building result time: 21.456 seconds (55.7%, 36.2%), r/p = 1.26.
+Total refal time: 38.538 seconds (65.1%).
+Builtin time: 20.667 seconds (34.9%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 54.559 seconds.
+Pattern match time: 17.748 seconds (44.6%, 32.5%), p/r = 0.81.
+Building result time: 22.028 seconds (55.4%, 40.4%), r/p = 1.24.
+Total refal time: 39.776 seconds (72.9%).
+Builtin time: 14.783 seconds (27.1%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 59.265 seconds.
+Pattern match time: 17.734 seconds (44.6%, 29.9%), p/r = 0.81.
+Building result time: 21.987 seconds (55.4%, 37.1%), r/p = 1.24.
+Total refal time: 39.721 seconds (67.0%).
+Builtin time: 19.544 seconds (33.0%).
+Step count 2038323
+Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
+
+Total program time: 54.548 seconds.
+Pattern match time: 17.862 seconds (44.8%, 32.7%), p/r = 0.81.
+Building result time: 21.981 seconds (55.2%, 40.3%), r/p = 1.23.
+Total refal time: 39.843 seconds (73.0%).
+Builtin time: 14.705 seconds (27.0%).
 Step count 2038323
 Memory used 1480759 nodes, 1480759 * 16 = 23692144 bytes
